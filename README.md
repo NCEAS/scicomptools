@@ -17,7 +17,7 @@ You can install the development version of scicomptools from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("njlyon0/scicomptools")
+devtools::install_github("NCEAS/scicomptools")
 ```
 
 ## Current Functions
