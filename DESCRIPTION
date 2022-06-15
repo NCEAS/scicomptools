@@ -1,0 +1,30 @@
+Package: scicomptools
+Type: Package
+Title: Set of Tools Used by the Scientific Computing Team at NCEAS
+Version: 0.2.2
+Authors@R: c(person("Julien", "Brun", email = "brun@nceas.ucsb.edu", comment = c(ORCID = "https://orcid.org/0000-0002-7751-6238"), role = c("aut", "cre")),
+  person("Kara", "Koenig", email = "karakoenig@umail.ucsb.edu", role = "aut"),
+  person("Kendall", "Miller", email = "kgmiller@ucsb.edu", role = "aut"),
+  person("Timothy", "Nguyen", email = "nguyen.d.timothy@gmail.com", role = "aut"),
+  person("Gabriel", "Daldegan", email = "gdaldegan@nceas.ucsb.edu", role = "aut"))
+Maintainer: Julien Brun <scicomp@nceas.ucsb.edu>
+Description: Set of tools to import and summarize data
+License: BSD_3_clause
+Encoding: UTF-8
+LazyData: true
+URL: https://github.nceas.ucsb.edu/SNAPP/scicomptools
+BugReports: https://github.nceas.ucsb.edu/SNAPP/scicomptools/issues
+Imports:
+   Hmisc,
+   tidyxl,
+   readxl,
+   readr,
+   dplyr,
+   tidyr,
+   purrr,
+   janitor,
+   googleAuthR,
+   akima,
+   ncdf4,
+   R.utils
+RoxygenNote: 6.1.1
