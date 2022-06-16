@@ -21,6 +21,7 @@ Imports:
    dplyr,
    gdata,
    ggplot2,
+   ggwordcloud,
    googleAuthR,
    Hmisc,
    janitor,

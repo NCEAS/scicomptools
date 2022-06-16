@@ -138,7 +138,8 @@ word_cloud_plot <- function(data = NULL, text_column = NULL,
   cloud <- cloud_df %>%
     ggplot2::ggplot(ggplot2::aes(label = word, size = n,
                                  color = color_groups)) +
-    ggplot2::geom_text_wordcloud(shape = 'circle', rm_outside = T,
+    ggwordcloud::geom_text_wordcloud(shape = 'circle',
+                                     rm_outside = T,
                                  na.rm = T) +
     ggplot2::scale_size_area(max_size = 5) +
     ggplot2::theme_minimal()
