@@ -5,6 +5,8 @@
 #' @param file character, file name/path of csv output from Zoom webinar
 #' @param report_type character, one of "attendance" or "survey"
 #'
+#' @importFrom magrittr %>%
+#'
 #' @return dataframe containing tidied (and machine-readable) webinar report. Also drops identifying information in attendance report (no such information in survey response).
 #' @export
 #'
