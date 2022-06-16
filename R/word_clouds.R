@@ -78,7 +78,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     # Remove numbers
     dplyr::mutate(word = gsub("1|2|3|4|5|6|7|8|9|0", "", word)) %>%
     # Make all words singular
-    dplyr::mutate(word = pluralize::singularize(word)) %>%
+    dplyr::mutate(word = pluralize::singularize(x = word)) %>%
     ## And then change some back to plural where it makes sense to do so
     dplyr::mutate(word = dplyr::case_when(
       word == "datum" ~ "data",
