@@ -10,7 +10,7 @@ Authors@R: c(person("Julien", "Brun", email = "brun@nceas.ucsb.edu", comment = c
   person("Gabriel", "Daldegan", email = "gdaldegan@nceas.ucsb.edu", role = "aut"))
 Maintainer: Julien Brun <scicomp@nceas.ucsb.edu>
 Description: Set of tools to import and summarize data
-License: BSD_3_clause
+License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/NCEAS/scicomptools
