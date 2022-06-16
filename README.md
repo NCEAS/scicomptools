@@ -22,4 +22,17 @@ devtools::install_github("NCEAS/scicomptools")
 
 ## Current Functions
 
-To be added, stay tuned!
+-   **`zoom_webinar_fix()`**: Processes the raw CSVs output by Zoom
+    after a webinar (handles both the attendance and post-webinar survey
+    dataframes)
+
+-   **`word_cloud_prep()`**: Performs text mining on a given text column
+    of a dataframe to create a dataframe that is ready for word cloud
+    creation.
+
+    -   Note that this includes the companion function
+        `word_cloud_plot()` that performs the mining and creates a
+        simple `ggplot2` word cloud (for those who don’t want to handle
+        their own plotting aesthetics)
+
+-   **`()`**:
