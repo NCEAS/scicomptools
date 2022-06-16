@@ -31,6 +31,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
     stop("Model type not supported. Please supply one of 'lmer', 'lm', 'nls', or 't.test' to `model_type` argument.")
 
   # Otherwise, process the supplied model type
+  # lmer model ----
   if(model_type == "lmer"){
 
     # Extract summary from data
@@ -63,6 +64,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
               file = file.path(output_path, output_name)) }
 
   # Now do linear model
+  # lm model ----
   if(model_type == "lm") {
 
     # Get summary
@@ -92,6 +94,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
               file = file.path(output_path, output_name)) }
 
   # Now do non-linear least squares
+  # nls model ----
   if(model_type == "nls") {
 
     # Get model summary
@@ -122,11 +125,12 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
               file = file.path(output_path, output_name)) }
 
   # Process t-test model
+  # t.test model ----
   if(model_type == "t.test") {
 
     # Extract relevant bit
     results <- data.frame(
-      "Estimate" = round(mod_t$estimate, digits = est_dig),
+      "Estimate" = round(as.numeric(mod_t$estimate), digits = est_dig),
       "df" = round(mod_t$parameter, digits = df_dig),
       "t" = round(mod_t$statistic, digits = t_dig),
       "p" = round(mod_t$p.value, digits = p_dig))
