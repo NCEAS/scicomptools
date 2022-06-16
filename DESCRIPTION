@@ -19,9 +19,11 @@ RoxygenNote: 7.1.2
 Imports:
    akima,
    dplyr,
+   ggplot2,
    googleAuthR,
    Hmisc,
    janitor,
+   magrittr,
    ncdf4,
    purrr,
    R.utils,
@@ -29,4 +31,5 @@ Imports:
    readxl,
    stringr,
    tidyr,
-   tidyxl,
+   tidytext,
+   tidyxl
