@@ -30,8 +30,8 @@ devtools::install_github("NCEAS/scicomptools")
     of a dataframe to create a dataframe that is ready for word cloud
     creation.
 
-    -   Note that this includes the companion function
-        `word_cloud_plot()` that performs the mining and creates a
+    -   Note that there is also the companion function
+        `word_cloud_plot()` that performs the mining *and* creates a
         simple `ggplot2` word cloud (for those who don’t want to handle
         their own plotting aesthetics)
 
