@@ -5,8 +5,11 @@
 \title{Read file from Google Drive using the google id hash
 addapted from https://github.com/sokole/ltermetacommunities/blob/master/examples/SOKOL-RScript-reading-from-google-drive.R}
 \usage{
-read.csv.gdrive(file_id_gdrive, skipper = 0,
-  gdrive_url = "https://drive.google.com/uc?export=download&id=")
+read.csv.gdrive(
+  file_id_gdrive,
+  skipper = 0,
+  gdrive_url = "https://drive.google.com/uc?export=download&id="
+)
 }
 \arguments{
 \item{file_id_gdrive}{(character) Google Drive csv file id A character}

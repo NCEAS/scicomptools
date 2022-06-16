@@ -4,8 +4,11 @@
 \alias{read_csv_gdrive}
 \title{Read file from Google Drive using the google id hash using readr::read_csv}
 \usage{
-read_csv_gdrive(file_id_gdrive, skipper = 0,
-  gdrive_url = "https://drive.google.com/uc?export=download&id=")
+read_csv_gdrive(
+  file_id_gdrive,
+  skipper = 0,
+  gdrive_url = "https://drive.google.com/uc?export=download&id="
+)
 }
 \arguments{
 \item{file_id_gdrive}{Google Drive csv file id A character}

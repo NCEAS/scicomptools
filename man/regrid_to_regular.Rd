@@ -4,9 +4,14 @@
 \alias{regrid_to_regular}
 \title{Interpolate a netcdf file to a regular World Geodetic System (WGS84) grid}
 \usage{
-regrid_to_regular(netcdf_file, variable_to_extract,
-  grid_resolution = 0.1, filling_value_flag = TRUE, lat = "TLONG",
-  long = "TLONG")
+regrid_to_regular(
+  netcdf_file,
+  variable_to_extract,
+  grid_resolution = 0.1,
+  filling_value_flag = TRUE,
+  lat = "TLONG",
+  long = "TLONG"
+)
 }
 \arguments{
 \item{netcdf_file}{A character}
