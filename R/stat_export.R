@@ -19,6 +19,9 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
                         output_name = paste0(model_type, "_", Sys.time(), "_model.csv"),
                         est_dig = 2, se_dig = 2, df_dig = 2,
                         t_dig = 2, p_dig = 4){
+  # Squelch visible bindings note
+  Estimate <- `Std. Error` <- df <- `t value` <- NULL
+  `Pr(>|t|)` <- term <- SE <- p <- mod_t <- NULL
 
   # Error out if model isn't provided
   if(is.null(model_obj)) stop("Model object is required")
@@ -42,7 +45,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
                               Estimate = round(Estimate, digits = est_dig),
                               SE = round(`Std. Error`, digits = se_dig),
                               df = round(df, digits = df_dig),
-                              t = round(`t value`, digit = t_dig),
+                              t = round(`t value`, digits = t_dig),
                               p = round(`Pr(>|t|)`, digits = p_dig))
 
     # Get a final version of just desired columns in the correct order
@@ -56,7 +59,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
     results <- lmer_actual
 
     # Export file
-    write.csv(x = results, row.names = F,
+    utils::write.csv(x = results, row.names = F,
               file = file.path(output_path, output_name)) }
 
   # Now do linear model
@@ -85,7 +88,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
     rownames(results) <- NULL
 
     # Export file
-    write.csv(x = results, row.names = F,
+    utils::write.csv(x = results, row.names = F,
               file = file.path(output_path, output_name)) }
 
   # Now do non-linear least squares
@@ -115,7 +118,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
     rownames(results) <- NULL
 
     # Export file
-    write.csv(x = results, row.names = F,
+    utils::write.csv(x = results, row.names = F,
               file = file.path(output_path, output_name)) }
 
   # Process t-test model
@@ -132,6 +135,6 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
     rownames(results) <- NULL
 
     # Export file
-    write.csv(x = results, row.names = F,
+    utils::write.csv(x = results, row.names = F,
               file = file.path(output_path, output_name)) }
   }

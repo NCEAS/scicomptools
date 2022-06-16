@@ -12,6 +12,15 @@
 #'
 
 zoom_webinar_fix <- function(file, report_type = "attendance") {
+  # Squelch visible bindings note
+  row_num <- `Attendee Report` <- cutoff <- `...2` <- NULL
+  contents <- Attended <- `Join Time` <- `'join_steamlined_1'` <- NULL
+  join_streamlined_2 <- Email <- webinar_day <- email_suffix <- NULL
+  domain <- participant_num <- suffix_ct <- time_submit <- NULL
+  `Survey Report` <- webinar_day_simp <- participation <- NULL
+  heard_where <- heard_other_text <- webinar_days_count <- NULL
+  email <- name_user <- webinar_useful <- feedback <- NULL
+
   # Error out if inappropriate `report_type` is specified
   if(!report_type %in% c('attendance', 'survey'))
     stop("'report_type' incorrectly specified. Must be one of 'attendance' or 'survey'")
@@ -71,13 +80,14 @@ zoom_webinar_fix <- function(file, report_type = "attendance") {
       # Then separate again to break apart the suffix
       tidyr::separate(col = email_suffix, into = c('suffix_p1', 'suffix_p2', 'suffix_p3', 'domain'), fill = 'left') %>%
       # Then re-combine the suffix parts preceding the final bit
-      tidyr::unite(col = email, contains('suffix_p'), sep = '.', na.rm = T) %>%
+      tidyr::unite(col = email, dplyr::contains('suffix_p'),
+                   sep = '.', na.rm = T) %>%
       # Group by suffix type...
       dplyr::group_by(email, domain) %>%
       # ...and count attendees per email suffix (while retaining other columns)
       dplyr::summarise(webinar_day = webinar_day,
                        participant_num = participant_num,
-                       suffix_ct = n()) %>%
+                       suffix_ct = dplyr::n()) %>%
       # Ungroup and get the total participation (while retaining other columns)
       dplyr::ungroup() %>%
       dplyr::summarise(webinar_day = webinar_day,
@@ -102,14 +112,13 @@ zoom_webinar_fix <- function(file, report_type = "attendance") {
       ## This incidentally removes the gross header rows so we're fine with that
       dplyr::filter(name_user == "Anonymous") %>%
       # Make all emails lowercase & find start date
-      dplyr::mutate(webinar_day_simp = str_sub(time_submit, 2, 12),
+      dplyr::mutate(webinar_day_simp = stringr::str_sub(time_submit, 2, 12),
                     participation = max(as.numeric(`Survey Report`), na.rm = T)) %>%
       # Keep only desired columns
       dplyr::select(webinar_day_simp, participation, webinar_useful, heard_where, heard_other_text, feedback) %>%
       # Count how responses per day
       dplyr::group_by(webinar_day_simp) %>%
-      # mutate(x_count=1:n())
-      dplyr::mutate(webinar_days_count = 1:n()) %>%
+      dplyr::mutate(webinar_days_count = 1:dplyr::n()) %>%
       dplyr::ungroup() %>%
       # Identify maximum day (as this will certainly be the day of the webinar)
       dplyr::mutate(webinar_day = webinar_day_simp[which.max(webinar_days_count)], .before = webinar_day_simp) %>%

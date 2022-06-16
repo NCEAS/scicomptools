@@ -15,6 +15,9 @@
 #'
 word_cloud_prep <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
+  # Squelch visible bindings note
+  text_full <- word <- free_text <- keep <- bigrams <- NULL
+  response_id <- angle <- NULL
 
   # Error out if data is not supplied or column isn't supplied
   if(is.null(data) | is.null(text_column))
@@ -38,7 +41,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     dplyr::rename(free_text = text_column) %>%
     # Identify whether a text entry has any bigrams
     dplyr::group_by(free_text) %>%
-    dplyr::mutate(bigrams_in_phrase = case_when(
+    dplyr::mutate(bigrams_in_phrase = dplyr::case_when(
       any(keep == 'yes', na.rm = T) ~ 'yes', T ~ 'no')) %>%
     # Keep only n-grams from wishlist OR phrases without any n-grams
     dplyr::filter(keep == 'yes' | all(keep == 'no', na.rm = T)) %>%
@@ -71,13 +74,13 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     # Keep only text columns
     dplyr::select(word) %>%
     # Remove stop words (that data object provided by `tidytext`)
-    dplyr::anti_join(stop_words, by = 'word') %>%
+    dplyr::anti_join(tidytext::stop_words, by = 'word') %>%
     # Remove numbers
     dplyr::mutate(word = gsub("1|2|3|4|5|6|7|8|9|0", "", word)) %>%
     # Make all words singular
     dplyr::mutate(word = pluralize::singularize(word)) %>%
     ## And then change some back to plural where it makes sense to do so
-    dplyr::mutate(word = case_when(
+    dplyr::mutate(word = dplyr::case_when(
       word == "datum" ~ "data",
       word == "statistic" ~ "statistics",
       word == "ncea" ~ "nceas",
@@ -92,7 +95,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     # Take only the first X many
     dplyr::slice(1:word_count) %>%
     # Add random angles to words
-    dplyr::mutate(angle = 45 * sample(-2:2, n(),
+    dplyr::mutate(angle = 45 * sample(-2:2, dplyr::n(),
                                       replace = T,
                                       prob = c(1, 1, 4, 1, 1))) %>%
     # Add a column for use as color factor
@@ -124,6 +127,8 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
 #'
 word_cloud_plot <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
+  # Squelch visible bindings note
+  word <- n <- color_groups <- NULL
 
   # Prepare text for word cloud creation
   cloud_df <- word_cloud_prep(data = data, text_column = text_column,
