@@ -27,5 +27,6 @@ Imports:
    R.utils,
    readr,
    readxl,
+   stringr,
    tidyr,
    tidyxl,
