@@ -19,6 +19,7 @@ RoxygenNote: 7.1.2
 Imports:
    akima,
    dplyr,
+   gdata,
    ggplot2,
    googleAuthR,
    Hmisc,

@@ -2,6 +2,7 @@
 
 export(categorical_frequency)
 export(csv_summary)
+export(morpho_wiz)
 export(output_bgcolor)
 export(output_bold)
 export(output_comment)
