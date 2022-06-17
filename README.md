@@ -51,3 +51,6 @@ devtools::install_github("NCEAS/scicomptools")
 
 -   **`regrid_to_regular()`**: Interpolates a netCDF file to World
     Geodetic System 84 (WGS84)
+
+-   **`read_full_excel()`**: Reads in all the sheets in a supplied
+    Microsoft Excel workbook and returns a list of those contents
