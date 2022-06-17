@@ -20,7 +20,7 @@ The goal of `scicomptools` is to house all of the standalone functions written b
 
 ## Installation
 
-You can install the development version of scicomptools from [GitHub](https://github.com/) with:
+You can install the development version of `scicomptools` from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -40,3 +40,5 @@ devtools::install_github("NCEAS/scicomptools")
 - **`csv_summary()`**: Convenient wrapper for running `Hmisc::describe()` on a CSV and exporting the result as another CSV
 
 - **`categorical_frequency()`**: Counts the frequency of levels of all categorical variables in a given dataframe
+
+- **`regrid_to_regular()`**: Interpolates a netCDF file to World Geodetic System 84 (WGS84)

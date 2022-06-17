@@ -15,7 +15,7 @@ analyze data
 
 ## Installation
 
-You can install the development version of scicomptools from
+You can install the development version of `scicomptools` from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -48,3 +48,6 @@ devtools::install_github("NCEAS/scicomptools")
 
 -   **`categorical_frequency()`**: Counts the frequency of levels of all
     categorical variables in a given dataframe
+
+-   **`regrid_to_regular()`**: Interpolates a netCDF file to World
+    Geodetic System 84 (WGS84)

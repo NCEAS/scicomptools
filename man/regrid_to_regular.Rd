@@ -2,7 +2,7 @@
 % Please edit documentation in R/geospatial.R
 \name{regrid_to_regular}
 \alias{regrid_to_regular}
-\title{Interpolate a netcdf file to a regular World Geodetic System (WGS84) grid}
+\title{Interpolate netCDF to WGS84}
 \usage{
 regrid_to_regular(
   netcdf_file,
@@ -14,25 +14,27 @@ regrid_to_regular(
 )
 }
 \arguments{
-\item{netcdf_file}{A character}
+\item{netcdf_file}{(character) path to netCDF file}
 
-\item{variable_to_extract}{A character}
+\item{variable_to_extract}{(character)}
 
-\item{grid_resolution}{A numeric}
+\item{grid_resolution}{(numeric)}
 
-\item{filling_value_flag}{A logical}
+\item{filling_value_flag}{(logical)}
 
-\item{lat}{An atomic vector}
+\item{lat}{(atomic vector)}
 
-\item{long}{An atomic vector}
+\item{long}{(atomic vector)}
 }
 \value{
 (rasterLayer) regridded raster
 }
 \description{
-Interpolate a netcdf file to a regular World Geodetic System (WGS84) grid
+Accepts a netCDF file and re-projects it into a new rasterLayer that has been re-gridded into World Geodetic System 84 (WGS84). Note that this relies on the `raster` package which is becoming superseded by `stars`, `terra`, and `sf`
 }
 \examples{
-\dontrun{regrid_to_regular("cesm_co2sys_2005.nc", "OARG")}
+\dontrun{
+regrid_to_regular("cesm_co2sys_2005.nc", "OARG")
+}
 
 }
