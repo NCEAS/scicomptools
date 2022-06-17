@@ -1,6 +1,28 @@
-## Extract information from an Excel workbook, outputing csv for the content, the font, the cell formatting and formaulas from each sheets
-## Still needs further testing and comments!
+#' @title Read All Sheets from an Excel Workbook
+#'
+#' @description Retrieves all of the sheets in a given Microsfot Excel workbook and stores them as elements in a list. Note that the guts of this function were created by the developers of `readxl` and a tutorial-ized version of this function can be found here: https://readxl.tidyverse.org/articles/readxl-workflows.html (Note however that they didn't have it as a function)
+#'
+#' @param filename (character) Name of the Excel workbook
+#'
+#' @return
+#' @export
+#'
+read_full_excel <- function(filename = NULL) {
+  # Error out if no filename is provided
+  if(base::is.null(filename)) stop("No file provided")
 
+  # For a given Excel file
+  excel_data <- filename %>%
+    # Retrieve the names of all of the sheets
+    readxl::excel_sheets() %>%
+    # Name each list element by the corresponding sheet names
+    purrr::set_names() %>%
+    # For each name, read in the sheet to that list element
+    purrr::map(readxl::read_excel, path = filename)
+
+  # Return that list
+  return(excel_data)
+}
 
 #' Export csv files out of an Excel workbook including formatting and formulas
 #'
@@ -10,10 +32,8 @@
 #'
 #' @export
 #'
-#' @examples
-
 output_to_csv <- function(filename) {
-  my_sheets <- read_excel_allsheets(filename)
+  my_sheets <- read_full_excel(filename)
   workbook_name <- gsub("^(.*\\/)*(.*)\\.xlsx$","\\2", filename)
   master_dir <- sprintf("./%s/", workbook_name)
   message("\n")
@@ -37,23 +57,7 @@ output_to_csv <- function(filename) {
 
 
 
-#' Read all the sheets from an Excel workbook
-#'
-#' @param filename (character)  Name of the Excel workbook
-#'
-#' @return
-#'
-#'
-#' @export
-#'
-#' @examples
 
-read_excel_allsheets <- function(filename) {
-  sheets <- readxl::excel_sheets(filename)
-  x <- lapply(sheets,function(X){readxl::read_excel(filename, sheet = X, col_name = FALSE)})
-  names(x) <- sheets
-  x
-}
 
 
 
@@ -67,7 +71,6 @@ read_excel_allsheets <- function(filename) {
 #' @return
 #' @export
 #'
-#' @examples
 output_sheet <- function(filename, directory, sheet, n) {
   x <-  tidyxl::xlsx_cells(filename)
 
@@ -100,7 +103,6 @@ output_sheet <- function(filename, directory, sheet, n) {
 #'
 #' @export
 #'
-#' @examples
 output_value <- function(contents, formats, directory, sheet) {
   values <- contents[[sheet]][["character"]]
 
@@ -133,7 +135,6 @@ output_value <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_bold <- function(contents, formats, directory, sheet) {
   bolds <- contents[[sheet]]$local_format_id %in% which(formats$local$font$bold)
   output <- matrix(data=bolds, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
@@ -155,7 +156,6 @@ output_bold <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_italic <- function(contents, formats, directory, sheet) {
   italics <- contents[[sheet]]$local_format_id %in% which(formats$local$font$italic)
   output <- matrix(data=italics, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
@@ -177,7 +177,6 @@ output_italic <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_underline <- function(contents, formats, directory, sheet) {
   output <- matrix(nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]))
   for (i in c(1:length(contents[[sheet]]$address))) {
@@ -201,7 +200,6 @@ output_underline <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_fontcolor <- function(contents, formats, directory, sheet) {
   output <- matrix(nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]))
   for (i in c(1:length(contents[[sheet]]$address))) {
@@ -225,7 +223,6 @@ output_fontcolor <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_font <- function(contents, formats, directory, sheet) {
   output <- matrix(nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]))
   for (i in c(1:length(contents[[sheet]]$address))) {
@@ -249,7 +246,6 @@ output_font <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_bgcolor <- function(contents, formats, directory, sheet) {
   output <- matrix(nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]))
   for (i in c(1:length(contents[[sheet]]$address))) {
@@ -273,7 +269,6 @@ output_bgcolor <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_formula <- function(contents, formats, directory, sheet) {
   formulas <- contents[[sheet]][["formula"]]
   output <- matrix(data=formulas, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
@@ -295,7 +290,6 @@ output_formula <- function(contents, formats, directory, sheet) {
 #'
 #' @export
 #'
-#' @examples
 output_comment <- function(contents, formats, directory, sheet) {
   comments <- contents[[sheet]][["comment"]]
   output <- matrix(data=comments, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
