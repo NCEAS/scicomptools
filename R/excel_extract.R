@@ -4,7 +4,6 @@
 #'
 #' @param filename (character) Name of the Excel workbook
 #'
-#' @return
 #' @export
 #'
 read_full_excel <- function(filename = NULL) {
@@ -27,8 +26,6 @@ read_full_excel <- function(filename = NULL) {
 #' Export csv files out of an Excel workbook including formatting and formulas
 #'
 #' @param filename (character)  Name of the Excel workbook
-#'
-#' @return
 #'
 #' @export
 #'
@@ -55,12 +52,6 @@ output_to_csv <- function(filename) {
   message("\n")
 }
 
-
-
-
-
-
-
 #' Wrapper function around the other functions to extract information from excel sheet into separate csv files
 #'
 #' @param filename (character)  Name of the Excel workbook
@@ -68,7 +59,6 @@ output_to_csv <- function(filename) {
 #' @param sheet (character)  Excel sheet name
 #' @param n (integer)  Sheet number
 #'
-#' @return
 #' @export
 #'
 output_sheet <- function(filename, directory, sheet, n) {
@@ -90,16 +80,12 @@ output_sheet <- function(filename, directory, sheet, n) {
   message(confirmation)
 }
 
-
-
 #'  Extract data information to csv
 #'
 #' @param contents (data frame) values stored in the Excel sheet
 #' @param formats (data frame) values stored in the Excel sheet
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
-#'
-#' @return
 #'
 #' @export
 #'
@@ -131,8 +117,6 @@ output_value <- function(contents, formats, directory, sheet) {
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
 #'
-#' @return
-#'
 #' @export
 #'
 output_bold <- function(contents, formats, directory, sheet) {
@@ -151,8 +135,6 @@ output_bold <- function(contents, formats, directory, sheet) {
 #' @param formats (data frame) values stored in the Excel sheet
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
-#'
-#' @return
 #'
 #' @export
 #'
@@ -173,8 +155,6 @@ output_italic <- function(contents, formats, directory, sheet) {
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
 #'
-#' @return
-#'
 #' @export
 #'
 output_underline <- function(contents, formats, directory, sheet) {
@@ -187,16 +167,12 @@ output_underline <- function(contents, formats, directory, sheet) {
   R.utils::write.table(output,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
 }
 
-
-
 #' Extract font colors information to csv
 #'
 #' @param contents (data frame) values stored in the Excel sheet
 #' @param formats (data frame) values stored in the Excel sheet
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
-#'
-#' @return
 #'
 #' @export
 #'
@@ -210,16 +186,12 @@ output_fontcolor <- function(contents, formats, directory, sheet) {
   R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
 }
 
-
-
 #' Extract font type information to csv
 #'
 #' @param contents (data frame) values stored in the Excel sheet
 #' @param formats (data frame) values stored in the Excel sheet
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
-#'
-#' @return
 #'
 #' @export
 #'
@@ -233,16 +205,12 @@ output_font <- function(contents, formats, directory, sheet) {
   R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
 }
 
-
-
 #' Extract background colors information to csv
 #'
 #' @param contents (data frame) values stored in the Excel sheet
 #' @param formats (data frame) values stored in the Excel sheet
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
-#'
-#' @return
 #'
 #' @export
 #'
@@ -256,16 +224,12 @@ output_bgcolor <- function(contents, formats, directory, sheet) {
   R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
 }
 
-
-
 #' Extract formulas information to csv
 #'
 #' @param contents (data frame) values stored in the Excel sheet
 #' @param formats (data frame) values stored in the Excel sheet
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
-#'
-#' @return
 #'
 #' @export
 #'
@@ -277,16 +241,12 @@ output_formula <- function(contents, formats, directory, sheet) {
   R.utils::write.table(output,file=output_name, row.names=FALSE, sep = ",")
 }
 
-
-
 #'  Extract comments information to csv
 #'
 #' @param contents (data frame) values stored in the Excel sheet
 #' @param formats (data frame) values stored in the Excel sheet
 #' @param directory (character) path to the folder where to save the csv files
 #' @param sheet (character) name of the sheet to process
-#'
-#' @return
 #'
 #' @export
 #'
