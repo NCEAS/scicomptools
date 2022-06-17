@@ -24,7 +24,7 @@ morpho_wiz <- function(file = NULL, read_dir = getwd(),
   if(is.null(file)) stop("No file provided.")
 
   # Read columns in as character type. This prevents the coercion of blank cells in otherwise numeric data to NA.
-  csv_file <- base::read.csv(file = file.path(read_dir, file),
+  csv_file <- utils::read.csv(file = file.path(read_dir, file),
                              stringsAsFactors = FALSE,
                              colClasses = "character")
 

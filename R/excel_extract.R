@@ -44,7 +44,7 @@ output_to_csv <- function(filename) {
     R.utils::captureOutput(Hmisc::describe(df), file=stat_output_name)
 
     output_name <- sprintf("%s%s.csv", dir_name, sheet_name)
-    R.utils::write.table(df,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
+    utils::write.table(df,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
 
     output_sheet(filename, dir_name, names(my_sheets[i]), i)
 
@@ -105,7 +105,7 @@ output_value <- function(contents, formats, directory, sheet) {
 
   output <- data.frame(output)
   output_name <- sprintf("%s%s.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE, sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE, sep = ",")
 }
 
 
@@ -124,7 +124,7 @@ output_bold <- function(contents, formats, directory, sheet) {
   output <- matrix(data=bolds, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
   output <- data.frame(output)
   output_name <- sprintf("%s%s_bold.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
 }
 
 
@@ -143,7 +143,7 @@ output_italic <- function(contents, formats, directory, sheet) {
   output <- matrix(data=italics, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
   output <- data.frame(output)
   output_name <- sprintf("%s%s_italic.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
 }
 
 
@@ -164,7 +164,7 @@ output_underline <- function(contents, formats, directory, sheet) {
   }
   output <- data.frame(output)
   output_name <- sprintf("%s%s_underline.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
 }
 
 #' Extract font colors information to csv
@@ -183,7 +183,7 @@ output_fontcolor <- function(contents, formats, directory, sheet) {
   }
   output <- data.frame(output)
   output_name <- sprintf("%s%s_fontColor.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
 }
 
 #' Extract font type information to csv
@@ -202,7 +202,7 @@ output_font <- function(contents, formats, directory, sheet) {
   }
   output <- data.frame(output)
   output_name <- sprintf("%s%s_font.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
 }
 
 #' Extract background colors information to csv
@@ -221,7 +221,7 @@ output_bgcolor <- function(contents, formats, directory, sheet) {
   }
   output <- data.frame(output)
   output_name <- sprintf("%s%s_bgColor.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE, col.names=FALSE,sep = ",")
 }
 
 #' Extract formulas information to csv
@@ -238,7 +238,7 @@ output_formula <- function(contents, formats, directory, sheet) {
   output <- matrix(data=formulas, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
   output <- data.frame(output)
   output_name <- sprintf("%s%s_formula.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE, sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE, sep = ",")
 }
 
 #'  Extract comments information to csv
@@ -255,5 +255,5 @@ output_comment <- function(contents, formats, directory, sheet) {
   output <- matrix(data=comments, nrow=max(contents[[sheet]][["row"]]),ncol=max(contents[[sheet]][["col"]]), byrow = TRUE)
   output <- data.frame(output)
   output_name <- sprintf("%s%s_comment.csv", directory, sheet)
-  R.utils::write.table(output,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
+  utils::write.table(output,file=output_name, row.names=FALSE,col.names=FALSE, sep = ",")
 }
