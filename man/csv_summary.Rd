@@ -2,9 +2,9 @@
 % Please edit documentation in R/summarization.R
 \name{csv_summary}
 \alias{csv_summary}
-\title{Apply summary function on a scpecific input files and export the results into a csv}
+\title{Summarize and Export a CSV}
 \usage{
-csv_summary(input, output)
+csv_summary(input = NULL, output = NULL)
 }
 \arguments{
 \item{input}{(character) path to input csv file}
@@ -12,8 +12,5 @@ csv_summary(input, output)
 \item{output}{(character) path to output summary file}
 }
 \description{
-Apply summary function on a scpecific input files and export the results into a csv
-}
-\examples{
-
+Applies `Hmisc::describe()` to a specific input CSV file and outputs the results into a new csv
 }

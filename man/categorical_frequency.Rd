@@ -2,18 +2,20 @@
 % Please edit documentation in R/summarization.R
 \name{categorical_frequency}
 \alias{categorical_frequency}
-\title{Compute categorical frequency}
+\title{Compute Categorical Frequency}
 \usage{
 categorical_frequency(df, threshold_fract = 0.9)
 }
 \arguments{
-\item{df}{A data frame containing the data to summarize}
+\item{df}{(data frame) data to summarize}
+
+\item{threshold_fract}{(numeric) threshold proportion (0-1) for identifying and dropping factors that are unique for every row}
 }
 \value{
 summary statistics for categorical values
 }
 \description{
-Compute categorical frequency
+Computes the frequency of categorical variables in a given dataframe.
 }
 \examples{
 \dontrun{
