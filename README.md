@@ -1,14 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src = "inst/images/scicomptools_hex.png" align = "right" width = "15%" />
+
 # `scicomptools`
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 The goal of scicomptools is to house all of the standalone functions
-written by NCEAS Scientific Computing Team that lack a specific project.
-Currently contains various tools to import, summarize and analyze data
+written by NCEAS Scientific Computing Team staff that lack a specific
+project. Currently contains various tools to import, summarize and
+analyze data
 
 ## Installation
 
@@ -35,4 +38,7 @@ devtools::install_github("NCEAS/scicomptools")
         simple `ggplot2` word cloud (for those who don’t want to handle
         their own plotting aesthetics)
 
--   **`()`**:
+-   **`stat_export()`**: Exports a tidy CSV of summary statistics of a
+    supported statistical test. Currently the following tests are
+    supported: `lmerTest::lmer()`, `stats::lm()`, `stats::nls()`, and
+    `stats::t.test()`
