@@ -15,9 +15,6 @@ output_formula(contents, formats, directory, sheet)
 
 \item{sheet}{(character) name of the sheet to process}
 }
-\value{
-
-}
 \description{
 Extract formulas information to csv
 }

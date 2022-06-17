@@ -15,9 +15,6 @@ output_bold(contents, formats, directory, sheet)
 
 \item{sheet}{(character) name of the sheet to process}
 }
-\value{
-
-}
 \description{
 Extract bold formatting information to csv
 }

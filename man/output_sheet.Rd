@@ -15,9 +15,6 @@ output_sheet(filename, directory, sheet, n)
 
 \item{n}{(integer)  Sheet number}
 }
-\value{
-
-}
 \description{
 Wrapper function around the other functions to extract information from excel sheet into separate csv files
 }

@@ -15,9 +15,6 @@ output_bgcolor(contents, formats, directory, sheet)
 
 \item{sheet}{(character) name of the sheet to process}
 }
-\value{
-
-}
 \description{
 Extract background colors information to csv
 }

@@ -15,9 +15,6 @@ output_comment(contents, formats, directory, sheet)
 
 \item{sheet}{(character) name of the sheet to process}
 }
-\value{
-
-}
 \description{
 Extract comments information to csv
 }

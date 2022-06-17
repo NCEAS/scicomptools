@@ -9,9 +9,6 @@ read_excel_allsheets(filename)
 \arguments{
 \item{filename}{(character)  Name of the Excel workbook}
 }
-\value{
-
-}
 \description{
 Read all the sheets from an Excel workbook
 }

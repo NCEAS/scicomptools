@@ -9,9 +9,6 @@ output_to_csv(filename)
 \arguments{
 \item{filename}{(character)  Name of the Excel workbook}
 }
-\value{
-
-}
 \description{
 Export csv files out of an Excel workbook including formatting and formulas
 }

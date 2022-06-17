@@ -15,9 +15,6 @@ output_fontcolor(contents, formats, directory, sheet)
 
 \item{sheet}{(character) name of the sheet to process}
 }
-\value{
-
-}
 \description{
 Extract font colors information to csv
 }

@@ -15,9 +15,6 @@ output_value(contents, formats, directory, sheet)
 
 \item{sheet}{(character) name of the sheet to process}
 }
-\value{
-
-}
 \description{
 Extract data information to csv
 }

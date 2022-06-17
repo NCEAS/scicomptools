@@ -15,9 +15,6 @@ output_italic(contents, formats, directory, sheet)
 
 \item{sheet}{(character) name of the sheet to process}
 }
-\value{
-
-}
 \description{
 Extract italic formatting information to csv
 }
