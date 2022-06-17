@@ -16,7 +16,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>",
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of scicomptools is to house all of the standalone functions written by NCEAS Scientific Computing Team staff that lack a specific project. Currently contains various tools to import, summarize and analyze data
+The goal of `scicomptools` is to house all of the standalone functions written by NCEAS Scientific Computing Team staff that lack a specific project. Currently contains various tools to import, summarize and analyze data
 
 ## Installation
 

@@ -8,7 +8,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of scicomptools is to house all of the standalone functions
+The goal of `scicomptools` is to house all of the standalone functions
 written by NCEAS Scientific Computing Team staff that lack a specific
 project. Currently contains various tools to import, summarize and
 analyze data
@@ -42,3 +42,9 @@ devtools::install_github("NCEAS/scicomptools")
     supported statistical test. Currently the following tests are
     supported: `lmerTest::lmer()`, `stats::lm()`, `stats::nls()`, and
     `stats::t.test()`
+
+-   **`csv_summary()`**: Convenient wrapper for running
+    `Hmisc::describe()` on a CSV and exporting the result as another CSV
+
+-   **`categorical_frequency()`**: Counts the frequency of levels of all
+    categorical variables in a given dataframe
