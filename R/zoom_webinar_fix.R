@@ -14,8 +14,8 @@
 zoom_webinar_fix <- function(file, report_type = "attendance") {
   # Squelch visible bindings note
   row_num <- `Attendee Report` <- cutoff <- `...2` <- . <- NULL
-  contents <- Attended <- `Join Time` <- `‘join_streamlined_1’` <- NULL
-  join_streamlined_2 <- Email <- webinar_day <- email_suffix <- NULL
+  contents <- Attended <- `Join Time` <- `join_streamlined_1` <- NULL
+  `join_streamlined_2` <- Email <- webinar_day <- email_suffix <- NULL
   domain <- participant_num <- suffix_ct <- time_submit <- NULL
   `Survey Report` <- webinar_day_simp <- participation <- NULL
   heard_where <- heard_other_text <- webinar_days_count <- NULL
@@ -63,9 +63,10 @@ zoom_webinar_fix <- function(file, report_type = "attendance") {
       dplyr::filter(Attended == "Yes") %>%
       # Identify webinar day & make email all lowercase
       dplyr::mutate(
-        join_streamlined_1 = gsub(", ", " ", `Join Time`),
-        join_streamlined_2 = gsub('\\"', "", join_streamlined_1),
-        webinar_day = stringr::str_sub(join_streamlined_2, 1, 11),
+        `join_streamlined_1` = gsub(", ", " ", `Join Time`),
+        `join_streamlined_2` = gsub('\\"', "",
+                                    `join_streamlined_1`),
+        webinar_day = stringr::str_sub(`join_streamlined_2`, 1, 11),
         email = tolower(Email)) %>%
       # Strip down to only needed columns
       dplyr::select(webinar_day, email) %>%
