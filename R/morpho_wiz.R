@@ -9,18 +9,24 @@
 #' @param na_code character, how missing values are coded in the data
 #'
 #' @importFrom magrittr %>%
+#' @importFrom magrittr %<>%
 #'
 #' @export
 #'
 morpho_wiz <- function(file = NULL, read_dir = getwd(),
                        write_dir = getwd(), na_code = "") {
+  # NOTE: I (Nick) guessed at the namespace for the `extract()` function and that could be wrong
+
+  # Squelch visible bindings note
+  .csv_unique <- . <- NULL
+
   # Error out if file is not named
   if(is.null(file)) stop("No file provided.")
 
   # Read columns in as character type. This prevents the coercion of blank cells in otherwise numeric data to NA.
-  csv_file <- read.csv(file = file.path(read_dir, file),
-                        stringsAsFactors = FALSE,
-                        colClasses = "character")
+  csv_file <- base::read.csv(file = file.path(read_dir, file),
+                             stringsAsFactors = FALSE,
+                             colClasses = "character")
 
   # Across all columns, find unique values and sort them in ascending
   # alphabetical order.
@@ -32,14 +38,15 @@ morpho_wiz <- function(file = NULL, read_dir = getwd(),
   # "" (i.e. the empty string--a blank cell in Excel--and NA).
   sort_missing <- function(col, na_code) {
     # Prevent errors about missing values using if-statement
-    if (any((col %in% na_code))) {
+    if (base::any((col %in% na_code))) {
       # Append alternative string at beginning of vector
       col %<>%
         c(na_code, .)
       # Find the indices of the second (i.e. original) occurrence of the
       # alternative string, and remove the duplicate occurrence
-      idx <- grep(na_code, col)[2]
-      col %<>% extract(-idx) # only way I found to remove vector elements
+      idx <- base::grep(na_code, col)[2]
+      # Only way I found to remove vector elements
+      col %<>% tidyr::extract(-idx)
     }
     return(col)
   }
@@ -59,7 +66,7 @@ morpho_wiz <- function(file = NULL, read_dir = getwd(),
 
   # Write variables to file
   lapply(fields,
-         function(field, dir) write.table(eval(as.symbol(field),
+         function(field, dir) utils::write.table(eval(as.symbol(field),
                                                envir = e),
                                           file = file.path(dir, field),
                                           row.names = FALSE,

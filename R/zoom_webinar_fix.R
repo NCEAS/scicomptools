@@ -13,8 +13,8 @@
 
 zoom_webinar_fix <- function(file, report_type = "attendance") {
   # Squelch visible bindings note
-  row_num <- `Attendee Report` <- cutoff <- `...2` <- NULL
-  contents <- Attended <- `Join Time` <- `'join_steamlined_1'` <- NULL
+  row_num <- `Attendee Report` <- cutoff <- `...2` <- . <- NULL
+  contents <- Attended <- `Join Time` <- `‘join_streamlined_1’` <- NULL
   join_streamlined_2 <- Email <- webinar_day <- email_suffix <- NULL
   domain <- participant_num <- suffix_ct <- time_submit <- NULL
   `Survey Report` <- webinar_day_simp <- participation <- NULL
