@@ -24,7 +24,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
   `Pr(>|t|)` <- term <- SE <- p <- mod_t <- NULL
 
   # Error out if model isn't provided
-  if(is.null(model_obj)) stop("Model object is required")
+  if(base::is.null(model_obj)) stop("Model object is required")
 
   # If the model type is not one of the accepted four, error out
   if(!model_type %in% c("lmer", "lm", "nls", "t.test"))
@@ -35,26 +35,26 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
   if(model_type == "lmer"){
 
     # Extract summary from data
-    lmer_smry <- summary(model_obj)
+    lmer_smry <- base::summary(model_obj)
 
     # Strip out coefficients
-    lmer_coef <- as.data.frame(lmer_smry$coefficients)
+    lmer_coef <- base::as.data.frame(lmer_smry$coefficients)
 
     # Calculate new columns
     lmer_new <- dplyr::mutate(.data = lmer_coef,
-                              term = row.names(lmer_coef),
-                              Estimate = round(Estimate, digits = est_dig),
-                              SE = round(`Std. Error`, digits = se_dig),
-                              df = round(df, digits = df_dig),
-                              t = round(`t value`, digits = t_dig),
-                              p = round(`Pr(>|t|)`, digits = p_dig))
+                              term = base::row.names(lmer_coef),
+                              Estimate = base::round(Estimate, digits = est_dig),
+                              SE = base::round(`Std. Error`, digits = se_dig),
+                              df = base::round(df, digits = df_dig),
+                              t = base::round(`t value`, digits = t_dig),
+                              p = base::round(`Pr(>|t|)`, digits = p_dig))
 
     # Get a final version of just desired columns in the correct order
     lmer_actual <- dplyr::select(.data = lmer_new, term,
                                  Estimate, SE, df, t, p)
 
     # Remove rownames
-    rownames(lmer_actual) <- NULL
+    base::rownames(lmer_actual) <- NULL
 
     # And name the object more broadly
     results <- lmer_actual
@@ -68,26 +68,26 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
   if(model_type == "lm") {
 
     # Get summary
-    lm_smry <- summary(model_obj)
+    lm_smry <- base::summary(model_obj)
 
     # Get coefficients from that
-    lm_coef <- as.data.frame(lm_smry$coefficients)
+    lm_coef <- base::as.data.frame(lm_smry$coefficients)
 
     # Round columns as needed
     lm_new <- dplyr::mutate(.data = lm_coef,
-                            term = row.names(lm_coef),
-                            Estimate = round(Estimate, digits = est_dig),
-                            SE = round(`Std. Error`, digits = se_dig),
-                            df = round(lm_smry$df[1:nrow(lm_coef)], df_dig),
-                            t = round(`t value`, digits = t_dig),
-                            p = round(`Pr(>|t|)`, digits = p_dig))
+                            term = base::row.names(lm_coef),
+                            Estimate = base::round(Estimate, digits = est_dig),
+                            SE = base::round(`Std. Error`, digits = se_dig),
+                            df = base::round(lm_smry$df[1:nrow(lm_coef)], df_dig),
+                            t = base::round(`t value`, digits = t_dig),
+                            p = base::round(`Pr(>|t|)`, digits = p_dig))
 
     # Strip out desired columns in preferred order
     results <- dplyr::select(.data = lm_new, term,
                              Estimate, SE, df, t, p)
 
     # Ditch row names
-    rownames(results) <- NULL
+    base::rownames(results) <- NULL
 
     # Export file
     utils::write.csv(x = results, row.names = F,
@@ -98,20 +98,20 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
   if(model_type == "nls") {
 
     # Get model summary
-    nls_smry <- summary(model_obj)
+    nls_smry <- base::summary(model_obj)
 
     # Extract coefficients
-    nls_coef <- as.data.frame(nls_smry$coefficients)
+    nls_coef <- base::as.data.frame(nls_smry$coefficients)
 
     # Get new columns
     nls_new <- dplyr::mutate(.data = nls_coef,
-                             term = row.names(nls_coef),
-                             Estimate = round(Estimate, digits = est_dig),
-                             SE = round(`Std. Error`, digits = se_dig),
-                             df = round(nls_smry$df[1:nrow(nls_coef)],
+                             term = base::row.names(nls_coef),
+                             Estimate = base::round(Estimate, digits = est_dig),
+                             SE = base::round(`Std. Error`, digits = se_dig),
+                             df = base::round(nls_smry$df[1:nrow(nls_coef)],
                                         digits = df_dig),
-                             t = round(`t value`, digits = t_dig),
-                             p = round(`Pr(>|t|)`, digits = p_dig))
+                             t = base::round(`t value`, digits = t_dig),
+                             p = base::round(`Pr(>|t|)`, digits = p_dig))
 
     # Get just desired columns
     results <- dplyr::select(.data = nls_new, term,
@@ -130,13 +130,13 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
 
     # Extract relevant bit
     results <- data.frame(
-      "Estimate" = round(as.numeric(mod_t$estimate), digits = est_dig),
-      "df" = round(mod_t$parameter, digits = df_dig),
-      "t" = round(mod_t$statistic, digits = t_dig),
-      "p" = round(mod_t$p.value, digits = p_dig))
+      "Estimate" = base::round(base::as.numeric(mod_t$estimate), digits = est_dig),
+      "df" = base::round(mod_t$parameter, digits = df_dig),
+      "t" = base::round(mod_t$statistic, digits = t_dig),
+      "p" = base::round(mod_t$p.value, digits = p_dig))
 
     # Remove rownames
-    rownames(results) <- NULL
+    base::rownames(results) <- NULL
 
     # Export file
     utils::write.csv(x = results, row.names = F,
