@@ -49,8 +49,18 @@ devtools::install_github("NCEAS/scicomptools")
 -   **`categorical_frequency()`**: Counts the frequency of levels of all
     categorical variables in a given dataframe
 
--   **`regrid_to_regular()`**: Interpolates a netCDF file to World
-    Geodetic System 84 (WGS84)
-
 -   **`read_full_excel()`**: Reads in all the sheets in a supplied
     Microsoft Excel workbook and returns a list of those contents
+
+## Deprecated Functions
+
+These functions used to be included in the repository but have since
+been flagged as deprecated and filed in the eponymous folder in this
+repository. Installing this package using `install_github()` **will
+not** get these functions, so if you’d like them you’ll need to clone
+this repository (or download the specific files that you want).
+Deprecated functions are as follows:
+
+-   **`regrid_to_regular()`**: Interpolates a netCDF file to World
+    Geodetic System 84 (WGS84)
+    -   Removed reason: uses superseded spatial R packages
