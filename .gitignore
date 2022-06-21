@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 # R project file
 *.Rproj
+
+# Workbench script for file testing
+workbench.R
