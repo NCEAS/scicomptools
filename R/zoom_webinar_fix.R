@@ -2,8 +2,8 @@
 #'
 #' @description Zoom webinars produce report CSVs of (1) attendance and (2) post-webinar survey responses. Both of these can be produced with human-readable header content before getting to participant data; unfortunately, these headers completely destroy R's ability to comprehend the column names for the relevant bits so a function was necessary to wrangle both types of report. Additionally, this function identifies the job sector of attendees based on their email domain
 #'
-#' @param file character, file name/path of csv output from Zoom webinar
-#' @param report_type character, one of "attendance" or "survey"
+#' @param file_name (character) Name of (and path to) the CSV output from Zoom webinar
+#' @param report_type (character) Either "attendance" or "survey" depending on which report type is in the CSV
 #'
 #' @importFrom magrittr %>%
 #'
@@ -11,7 +11,7 @@
 #' @export
 #'
 
-zoom_webinar_fix <- function(file, report_type = "attendance") {
+zoom_webinar_fix <- function(file_name, report_type = "attendance") {
   # Squelch visible bindings note
   row_num <- `Attendee Report` <- cutoff <- `...2` <- . <- NULL
   contents <- Attended <- `Join Time` <- `join_streamlined_1` <- NULL
@@ -26,10 +26,11 @@ zoom_webinar_fix <- function(file, report_type = "attendance") {
     stop("'report_type' incorrectly specified. Must be one of 'attendance' or 'survey'")
 
   # If the report being retrieved is an attendance report do the following:
+  ## Attendance reports ----
   if(report_type == "attendance") {
 
     # Read in the attendance data
-    headcount_raw <- suppressWarnings(readr::read_csv(file.path("Data", "Webinar-Attendance", file), show_col_types = F))
+    headcount_raw <- suppressWarnings(utils::read.csv(file = file_name))
 
     # If the download has the header on it, remove the header
     if (names(headcount_raw)[1] == "Attendee Report"){
@@ -102,9 +103,10 @@ zoom_webinar_fix <- function(file, report_type = "attendance") {
     return(headcount_fix) }
 
   # If the report type is "survey" we'll need to handle the wonky header
+  ## Survey reports ----
   if (report_type == "survey"){
 
-    survey_fix <- suppressMessages(suppressWarnings(readr::read_csv(file.path("Data", "Webinar-Surveys", file), show_col_types = F))) %>%
+    survey_fix <- suppressWarnings(utils::read.csv(file = file_name)) %>%
       # Remove commas from all date columns
       dplyr::mutate(contents = gsub(", 20", " 20", `...2`)) %>%
       # Break apart the data into the actual columns (the raw .csv is not tidily formatted)

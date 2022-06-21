@@ -4,12 +4,12 @@
 \alias{zoom_webinar_fix}
 \title{Wrangle Zoom Webinar Report CSVs}
 \usage{
-zoom_webinar_fix(file, report_type = "attendance")
+zoom_webinar_fix(file_name, report_type = "attendance")
 }
 \arguments{
-\item{file}{character, file name/path of csv output from Zoom webinar}
+\item{file_name}{(character) Name of (and path to) the CSV output from Zoom webinar}
 
-\item{report_type}{character, one of "attendance" or "survey"}
+\item{report_type}{(character) Either "attendance" or "survey" depending on which report type is in the CSV}
 }
 \value{
 dataframe containing tidied (and machine-readable) webinar report. Also drops identifying information in attendance report (no such information in survey response).

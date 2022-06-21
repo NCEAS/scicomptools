@@ -23,7 +23,7 @@ Imports:
    magrittr,
    pluralize,
    purrr,
-   readr,
+   R.utils,
    readxl,
    stringr,
    tidyr,
