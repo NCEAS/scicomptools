@@ -67,9 +67,14 @@ Deprecated functions are as follows:
 
 -   **`csv_summary()`**: Convenient wrapper for running
     `Hmisc::describe()` on a CSV and exporting the result as another CSV
-
+    -   Removed reason: `Hmisc::describe()` is very similar to
+        `base::summary()` and an exporting function that doesn’t do
+        significant manipulation could just run in the Console instead
+        of making a new file (personal preference there though)
 -   **`categorical_frequency()`**: Counts the frequency of levels of all
     categorical variables in a given dataframe
+    -   Removed reason: Not often necessary to count the relative
+        frequency of categorical variables for its own sake
 
 ### Spatial
 
