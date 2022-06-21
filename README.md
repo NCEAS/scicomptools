@@ -41,7 +41,12 @@ devtools::install_github("NCEAS/scicomptools")
 
 -   **`word_cloud_prep()`**: Performs text mining on a given text column
     of a dataframe to create a dataframe that is ready for word cloud
-    creation.
+    creation
+
+-   **`morpho_wiz()`**: Identifies and sorts the unique values of every
+    column in a supplied CSV. The function name comes from its original
+    *raison d’etre* as a helper function for pre-processing before
+    submission to dataONE’s Morpho software
 
 ### Visualization
 

@@ -4,17 +4,21 @@
 \alias{morpho_wiz}
 \title{Pre-Morpho Wrangling}
 \usage{
-morpho_wiz(file = NULL, read_dir = getwd(), write_dir = getwd(), na_code = "")
+morpho_wiz(file_name = NULL, na_code = "")
 }
 \arguments{
-\item{file}{character, name of file to check}
+\item{file_name}{(character) Name of (and path to) the input CSV}
 
-\item{read_dir}{character, path to file to check}
-
-\item{write_dir}{character, path to write checked file to}
-
-\item{na_code}{character, how missing values are coded in the data}
+\item{na_code}{(character) How missing values are coded in the data}
+}
+\value{
+(list) unique elements
 }
 \description{
 "Morpho" refers to dataONE's metadata software **NOT** the 2022 NCEAS working group request for proposals of the same name. See [here](https://old.dataone.org/software-tools/morpho) for the Morpho these functions are meant to deal with. Written by: Justin Kroes (jkroes14@ucsbalum.com | orcid.org/0000-0003-3257-2321)
+}
+\examples{
+# Identify unique values per column with custom missing code appended to front of vector
+morpho_wiz(file_name = system.file("extdata", "fake_data.csv",
+package = "scicomptools"), na_code = "empty")
 }
