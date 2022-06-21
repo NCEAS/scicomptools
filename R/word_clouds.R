@@ -20,7 +20,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
   response_id <- angle <- NULL
 
   # Error out if data is not supplied or column isn't supplied
-  if(is.null(data) | is.null(text_column))
+  if(base::is.null(data) | base::is.null(text_column))
     stop("`data` and `text_column` arguments must be supplied.")
 
   # Perform actual text mining
@@ -42,11 +42,15 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     # Identify whether a text entry has any bigrams
     dplyr::group_by(free_text) %>%
     dplyr::mutate(bigrams_in_phrase = dplyr::case_when(
-      any(keep == 'yes', na.rm = T) ~ 'yes', T ~ 'no')) %>%
+      base::any(keep == 'yes', na.rm = T) ~ 'yes',
+      T ~ 'no')) %>%
     # Keep only n-grams from wishlist OR phrases without any n-grams
-    dplyr::filter(keep == 'yes' | all(keep == 'no', na.rm = T)) %>%
+    dplyr::filter(keep == 'yes' | base::all(keep == 'no',
+                                            na.rm = T)) %>%
     # # Remove the "n-grams" that aren't real n-grams
-    dplyr::mutate(word = ifelse(keep == 'no', yes = NA, no = word)) %>%
+    dplyr::mutate(word = base::ifelse(test = keep == 'no',
+                                      yes = NA,
+                                      no = word)) %>%
     # And strip down to one row per response
     base::unique() %>%
     # Rename the word column
@@ -102,8 +106,8 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     dplyr::mutate(color_groups = factor(sample.int(10, length(angle),
                                                    replace = T))) %>%
     # Make sure that the most frequent word isn't rotated
-    dplyr::mutate(angle = dplyr::case_when(n == max(n) ~ 0,
-                                    T ~ as.numeric(angle)))
+    dplyr::mutate(angle = dplyr::case_when(n == base::max(n) ~ 0,
+                                    T ~ base::as.numeric(angle)))
 
   # Return that data object
   return(cloud_df)
