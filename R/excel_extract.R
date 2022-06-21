@@ -8,6 +8,10 @@
 #'
 #' @export
 #'
+#' @examples
+#' # Read in each sheet as an element in a list
+#' read_xl_sheets(file_name = system.file("extdata", "faux_data.xlsx", package = "scicomptools"))
+#'
 read_xl_sheets <- function(file_name = NULL) {
   # Error out if no file name is provided
   if(base::is.null(file_name)) stop("No file provided")
@@ -35,7 +39,15 @@ read_xl_sheets <- function(file_name = NULL) {
 #'
 #' @export
 #'
+#' @examples
+#' # Identify the formatting of every cell in all sheets of an Excel file
+#' read_xl_format(file_name = system.file("extdata", "faux_data.xlsx", package = "scicomptools"))
 read_xl_format <- function(file_name = NULL){
+  # Squelch visible bindings note
+  error <- error_char <- logical_char <- numeric_char <- NULL
+  date_char <- . <- sheet <- address <- cell_contents <- NULL
+  formula <- bold <- italic <- underline <- font_size <- NULL
+  font_color <- cell_color <- NULL
 
   # Error out if no file name is provided
   if(base::is.null(file_name)) stop("No file provided")
