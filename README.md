@@ -10,8 +10,10 @@
 
 The goal of `scicomptools` is to house all of the standalone functions
 written by NCEAS Scientific Computing Team staff that lack a specific
-project. Currently contains various tools to import, summarize and
-analyze data
+project. Currently contains various tools to import, summarize, and
+visualize data. Non-function scripts created by this team are part of
+the [`scicomptasks`
+repository](https://github.com/NCEAS/scicomptasks#readme).
 
 ## Installation
 
