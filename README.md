@@ -49,8 +49,11 @@ devtools::install_github("NCEAS/scicomptools")
 -   **`categorical_frequency()`**: Counts the frequency of levels of all
     categorical variables in a given dataframe
 
--   **`read_full_excel()`**: Reads in all the sheets in a supplied
+-   **`read_xl_sheets()`**: Reads in all the sheets in a supplied
     Microsoft Excel workbook and returns a list of those contents
+
+-   **`read_xl_format()`**: Identifies the formatting of every cell in a
+    supplied Microsoft Excel workbook (including comment text)
 
 ## Deprecated Functions
 
