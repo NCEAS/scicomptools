@@ -48,10 +48,10 @@ formats <- tidyxl::xlsx_formats(path = file_name)
 output <- contents %>%
   dplyr::mutate(
     # Coerce non-character cells into characters
-    error_char = as.character(error),
-    logical_char = as.character(logical),
-    numeric_char = as.character(numeric),
-    date_char = as.character(date),
+    error_char = base::as.character(error),
+    logical_char = base::as.character(logical),
+    numeric_char = base::as.character(numeric),
+    date_char = base::as.character(date),
     # So that we can `coalesce()` them into a single column
     cell_contents = dplyr::coalesce(error_char, logical_char, numeric_char, date_char, character),
     # Now retrieve necessary formatting information
@@ -62,10 +62,12 @@ output <- contents %>%
     font_color = formats$local$font$color$rgb[.$local_format_id],
     cell_color = formats$local$fill$patternFill$bgColor$rgb[.$local_format_id]
   ) %>%
-  dplyr::select(sheet, address, row, col, cell_contents, comment, bold, italic, underline, font_size, font_color, cell_color)
+  dplyr::select(sheet, address, row, col, cell_contents, comment,
+                formula, bold, italic, underline, font_size,
+                font_color, cell_color)
 
 # And return that output dataframe
-return(output)
+return(base::as.data.frame(output))
 
 }
 
