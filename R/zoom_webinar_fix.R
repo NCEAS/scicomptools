@@ -30,7 +30,8 @@ zoom_webinar_fix <- function(file_name, report_type = "attendance") {
   if(report_type == "attendance") {
 
     # Read in the attendance data
-    headcount_raw <- suppressWarnings(utils::read.csv(file = file_name))
+    headcount_raw <- suppressWarnings(
+      readr::read_csv(file = file_name, show_col_types = FALSE))
 
     # If the download has the header on it, remove the header
     if (names(headcount_raw)[1] == "Attendee Report"){
@@ -106,7 +107,8 @@ zoom_webinar_fix <- function(file_name, report_type = "attendance") {
   ## Survey reports ----
   if (report_type == "survey"){
 
-    survey_fix <- suppressWarnings(utils::read.csv(file = file_name)) %>%
+    survey_fix <- suppressWarnings(
+      readr::read_csv(file = file_name, show_col_types = FALSE)) %>%
       # Remove commas from all date columns
       dplyr::mutate(contents = gsub(", 20", " 20", `...2`)) %>%
       # Break apart the data into the actual columns (the raw .csv is not tidily formatted)

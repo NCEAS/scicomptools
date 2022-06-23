@@ -24,6 +24,7 @@ Imports:
    pluralize,
    purrr,
    R.utils,
+   readr,
    readxl,
    stringr,
    tidyr,
