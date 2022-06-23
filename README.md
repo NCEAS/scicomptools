@@ -61,6 +61,15 @@ devtools::install_github("NCEAS/scicomptools")
     supported: `lmerTest::lmer()`, `stats::lm()`, `stats::nls()`, and
     `stats::t.test()`
 
+### Other
+
+-   **`token_check()`**: Checks for whether a token for the supplied API
+    can be found for your current R session. For example, Qualtrics
+    allows direct acquisition of data from R *if* you have a token and
+    your R session “knows” that string. This function quickly checks
+    whether you’d be able to use that workflow (currently only supports
+    search for Qualtrics token but could be easily expanded!)
+
 ## Deprecated Functions
 
 These functions used to be included in the repository but have since

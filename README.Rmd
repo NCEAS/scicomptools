@@ -41,7 +41,6 @@ devtools::install_github("NCEAS/scicomptools")
 
 - **`morpho_wiz()`**: Identifies and sorts the unique values of every column in a supplied CSV. The function name comes from its original *raison d'etre* as a helper function for pre-processing before submission to dataONE's Morpho software
 
-
 ### Visualization
 
 - **`word_cloud_plot()`**: Performs text mining (using `word_cloud_prep()`) *and* creates a simple `ggplot2` word cloud (for those who don't want to handle their own plotting aesthetics)
@@ -49,6 +48,10 @@ devtools::install_github("NCEAS/scicomptools")
 ### Modeling / Analysis
 
 -   **`stat_export()`**: Exports a tidy CSV of summary statistics of a supported statistical test. Currently the following tests are supported: `lmerTest::lmer()`, `stats::lm()`, `stats::nls()`, and `stats::t.test()`
+
+### Other
+
+- **`token_check()`**: Checks for whether a token for the supplied API can be found for your current R session. For example, Qualtrics allows direct acquisition of data from R *if* you have a token and your R session "knows" that string. This function quickly checks whether you'd be able to use that workflow (currently only supports search for Qualtrics token but could be easily expanded!)
 
 ## Deprecated Functions
 
