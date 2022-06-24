@@ -7,7 +7,7 @@
 token_check(api = "qualtrics", secret = TRUE)
 }
 \arguments{
-\item{api}{(character) API the token is for (currently only supports "qualtrics")}
+\item{api}{(character) API the token is for (currently only supports "qualtrics" and "github")}
 
 \item{secret}{(logical) Whether to include the token character string in the success message. FALSE prints the token, TRUE keeps it secret but returns a success message}
 }
