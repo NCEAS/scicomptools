@@ -19,21 +19,21 @@ stat_export(
 \arguments{
 \item{model_obj}{output of `lmerTest::lmer()`, `stats::lm()`, `stats::nls()`, `stats::t.test()`}
 
-\item{model_type}{character, one of "lmer", "lm", "nls" or "t-test"}
+\item{model_type}{(character) One of "lmer", "lm", "nls" or "t-test"}
 
-\item{output_path}{character, file path to save file to}
+\item{output_path}{(character) File path to save file to}
 
-\item{output_name}{character, desired name of file (defaults to model type and system time)}
+\item{output_name}{(character) Desired name of file (defaults to model type and system time)}
 
-\item{est_dig}{numeric, number of digits to round estimate to}
+\item{est_dig}{(numeric) Number of digits to round estimate to}
 
-\item{se_dig}{numeric, number of digits to round standard error to}
+\item{se_dig}{(numeric) Number of digits to round standard error to}
 
-\item{df_dig}{numeric, number of digits to round degrees of freedom to}
+\item{df_dig}{(numeric) Number of digits to round degrees of freedom to}
 
-\item{t_dig}{numeric, number of digits to round T value to}
+\item{t_dig}{(numeric) Number of digits to round T value to}
 
-\item{p_dig}{numeric, number of digits to round P value to}
+\item{p_dig}{(numeric) Number of digits to round P value to}
 }
 \description{
 Accepts a model fit object for one of a set of models and saves a CSV of summary statistics to the desired location. Allows user to define the number of digits for each summary statistic if desired

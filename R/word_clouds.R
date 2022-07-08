@@ -2,10 +2,10 @@
 #'
 #' @description Mines a user-defined column to create a dataframe that is ready for creating a word cloud. It also identifies any user-defined "bigrams" (i.e., two-word phrases) supplied as a vector.
 #'
-#' @param data dataframe containing at least one column
-#' @param text_column character, name of column in dataframe given to `data` that contains the text to be mined
-#' @param word_count numeric, number of words to be returned (counts from most to least frequent)
-#' @param known_bigrams character vector, all bigrams (two-word phrases) to be mined before mining for single words
+#' @param data (dataframe) Data object containing at least one column
+#' @param text_column (character) Name of column in dataframe given to `data` that contains the text to be mined
+#' @param word_count (numeric) Number of words to be returned (counts from most to least frequent)
+#' @param known_bigrams (character) Vector of all bigrams (two-word phrases) to be mined before mining for single words
 #'
 #' @importFrom magrittr %>%
 #'

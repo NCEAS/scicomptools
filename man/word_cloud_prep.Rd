@@ -12,13 +12,13 @@ word_cloud_prep(
 )
 }
 \arguments{
-\item{data}{dataframe containing at least one column}
+\item{data}{(dataframe) Data object containing at least one column}
 
-\item{text_column}{character, name of column in dataframe given to `data` that contains the text to be mined}
+\item{text_column}{(character) Name of column in dataframe given to `data` that contains the text to be mined}
 
-\item{word_count}{numeric, number of words to be returned (counts from most to least frequent)}
+\item{word_count}{(numeric) Number of words to be returned (counts from most to least frequent)}
 
-\item{known_bigrams}{character vector, all bigrams (two-word phrases) to be mined before mining for single words}
+\item{known_bigrams}{(character) Vector of all bigrams (two-word phrases) to be mined before mining for single words}
 }
 \value{
 dataframe of one column (named 'word') that can be used for word cloud creation. One row per bigram supplied in `known_bigrams` or single word (not including "stop words")

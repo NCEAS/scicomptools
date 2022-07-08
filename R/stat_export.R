@@ -3,14 +3,14 @@
 #' @description Accepts a model fit object for one of a set of models and saves a CSV of summary statistics to the desired location. Allows user to define the number of digits for each summary statistic if desired
 #'
 #' @param model_obj output of `lmerTest::lmer()`, `stats::lm()`, `stats::nls()`, `stats::t.test()`
-#' @param model_type character, one of "lmer", "lm", "nls" or "t-test"
-#' @param output_path character, file path to save file to
-#' @param output_name character, desired name of file (defaults to model type and system time)
-#' @param est_dig numeric, number of digits to round estimate to
-#' @param se_dig numeric, number of digits to round standard error to
-#' @param df_dig numeric, number of digits to round degrees of freedom to
-#' @param t_dig numeric, number of digits to round T value to
-#' @param p_dig numeric, number of digits to round P value to
+#' @param model_type (character) One of "lmer", "lm", "nls" or "t-test"
+#' @param output_path (character) File path to save file to
+#' @param output_name (character) Desired name of file (defaults to model type and system time)
+#' @param est_dig (numeric) Number of digits to round estimate to
+#' @param se_dig (numeric) Number of digits to round standard error to
+#' @param df_dig (numeric) Number of digits to round degrees of freedom to
+#' @param t_dig (numeric) Number of digits to round T value to
+#' @param p_dig (numeric) Number of digits to round P value to
 #'
 #' @export
 #'
