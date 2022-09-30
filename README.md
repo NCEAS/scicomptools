@@ -3,7 +3,7 @@
 
 <img src = "inst/images/scicomptools_hex.png" align = "right" width = "15%" />
 
-# `scicomptools`
+# `scicomptools` - Tools Developed by NCEAS’ Scientific Computing Support Team
 
 <!-- badges: start -->
 <!-- badges: end -->

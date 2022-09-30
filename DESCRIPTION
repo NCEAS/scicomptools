@@ -1,6 +1,6 @@
 Package: scicomptools
 Type: Package
-Title: Set of Tools Used by the Scientific Computing Team at NCEAS
+Title: Tools Developed by NCEAS' Scientific Computing Support Team
 Version: 0.3.0
 Authors@R: c(person("Julien", "Brun", email = "brun@nceas.ucsb.edu", comment = c(ORCID = "https://orcid.org/0000-0002-7751-6238"), role = c("aut", "cre")),
   person("Kara", "Koenig", email = "karakoenig@umail.ucsb.edu", role = "aut"),
