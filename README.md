@@ -63,6 +63,11 @@ devtools::install_github("NCEAS/scicomptools")
 
 ### Other
 
+-   **`wd_loc`**: Allows user to easily specify file paths both for
+    local and remote work and then toggle between them in the same
+    script as needed. Useful when work is being done both in local
+    computers and on a remote server
+
 -   **`token_check`**: Checks for whether a token for the supplied API
     can be found for your current R session. For example, Qualtrics
     allows direct acquisition of data from R *if* you have a token and
