@@ -49,6 +49,8 @@ devtools::install_github("NCEAS/scicomptools")
 
 -   **`stat_export`**: Exports a tidy CSV of summary statistics of a supported statistical test. Currently the following tests are supported: `lmerTest::lmer`, `stats::lm`, `stats::nls`, and `stats::t.test`
 
+- **`nlme_extract`**: Extracts summary statistics from a `nlme::lme` model fit object
+
 ### Other
 
 - **`wd_loc`**: Allows user to easily specify file paths both for local and remote work and then toggle between them in the same script as needed. Useful when work is being done both in local computers and on a remote server 
