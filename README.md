@@ -56,6 +56,10 @@ devtools::install_github("NCEAS/scicomptools")
 
 ### Modeling / Analysis
 
+- **`traj_extract`** Extracts summary statistics for all three metrics
+  analyzed by `RRPP::trajectory.analysis` (i.e., distance, shape, and
+  angle)
+
 - **`stat_export`**: Exports a tidy CSV of summary statistics of a
   supported statistical test. Currently the following tests are
   supported: `lmerTest::lmer`, `stats::lm`, `stats::nls`, and
