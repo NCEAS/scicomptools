@@ -9,27 +9,32 @@ Authors@R: c(person("Julien", "Brun", email = "brun@nceas.ucsb.edu", comment = c
   person("Timothy", "Nguyen", email = "nguyen.d.timothy@gmail.com", role = "aut"),
   person("Gabriel", "Daldegan", email = "gdaldegan@nceas.ucsb.edu", role = "aut"))
 Maintainer: Julien Brun <scicomp@nceas.ucsb.edu>
-Description: Set of tools to import and summarize data.
+Description: Set of tools to import, summarize, wrangle, and visualize data.
 License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Language: en-US
 URL: https://github.com/NCEAS/scicomptools
 BugReports: https://github.com/NCEAS/scicomptools/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports:
    dplyr,
    gitcreds,
    ggplot2,
    ggwordcloud,
    magrittr,
-   nlme,
+   methods,
    pluralize,
    purrr,
    R.utils,
    readr,
    readxl,
    stringr,
+   tibble,
    tidyr,
    tidytext,
    tidyxl,
    utils
+Suggests:
+   nlme,
+   RRPP
