@@ -83,22 +83,28 @@
 <h2 id="current-functions">Current Functions<a class="anchor" aria-label="anchor" href="#current-functions"></a>
 </h2>
 <div class="section level3">
+<h3 id="google-drive">Google Drive<a class="anchor" aria-label="anchor" href="#google-drive"></a>
+</h3>
+<ul>
+<li>
+<strong><code>drive_toc</code></strong>: Identifies the complete folder hierarchy within a user-supplied URL for a Google Drive folder. Useful in generating a table of contents for a Google Drive. Also allows exclusion of folders by name if there are folders that you would not want included in a table of contents</li>
+</ul>
+</div>
+<div class="section level3">
 <h3 id="data-description--wrangling">Data Description / Wrangling<a class="anchor" aria-label="anchor" href="#data-description--wrangling"></a>
 </h3>
 <ul>
 <li><p><strong><code>read_xl_sheets</code></strong>: Reads in all the sheets in a supplied Microsoft Excel workbook and returns a list of those contents</p></li>
 <li><p><strong><code>read_xl_format</code></strong>: Identifies the formatting of every cell in a supplied Microsoft Excel workbook (including comment text)</p></li>
 <li><p><strong><code>zoom_webinar_fix</code></strong>: Processes the raw CSVs output by Zoom after a webinar (handles both the attendance and post-webinar survey dataframes)</p></li>
-<li><p><strong><code>word_cloud_prep</code></strong>: Performs text mining on a given text column of a dataframe to create a dataframe that is ready for word cloud creation</p></li>
-<li><p><strong><code>morpho_wiz</code></strong>: Identifies and sorts the unique values of every column in a supplied CSV. The function name comes from its original <em>raison d’etre</em> as a helper function for pre-processing before submission to dataONE’s Morpho software</p></li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="visualization">Visualization<a class="anchor" aria-label="anchor" href="#visualization"></a>
+<h3 id="text-mining">Text Mining<a class="anchor" aria-label="anchor" href="#text-mining"></a>
 </h3>
 <ul>
-<li>
-<strong><code>word_cloud_plot</code></strong>: Performs text mining (using <code>word_cloud_prep</code>) <em>and</em> creates a simple <code>ggplot2</code> word cloud (for those who don’t want to handle their own plotting aesthetics)</li>
+<li><p><strong><code>word_cloud_prep</code></strong>: Performs text mining on a given text column of a dataframe to create a dataframe that is ready for word cloud creation</p></li>
+<li><p><strong><code>word_cloud_plot</code></strong>: Performs text mining (using <code>word_cloud_prep</code>) <em>and</em> creates a simple <code>ggplot2</code> word cloud (for those who don’t want to handle their own plotting aesthetics)</p></li>
 </ul>
 </div>
 <div class="section level3">
@@ -122,10 +128,7 @@
 <div class="section level2">
 <h2 id="deprecated-functions">Deprecated Functions<a class="anchor" aria-label="anchor" href="#deprecated-functions"></a>
 </h2>
-<p>These functions used to be included in the repository but have since been flagged as deprecated and filed in the eponymous folder in this repository. Installing this package using <code>install_github</code> <strong>will not</strong> get these functions, so if you’d like them you’ll need to clone this repository (or download the specific files that you want). Deprecated functions are as follows:</p>
-<div class="section level3">
-<h3 id="data-description--wrangling-1">Data Description / Wrangling<a class="anchor" aria-label="anchor" href="#data-description--wrangling-1"></a>
-</h3>
+<p>These functions used to be included in the repository but have since been flagged as deprecated and filed in the eponymous folder in this repository. Installing this package using <code>install_github</code> <strong>will not</strong> get these functions, so if you’d like them you’ll need to clone this repository (or download the specific files that you want from the “deprecated” folder). Deprecated functions are as follows:</p>
 <ul>
 <li>
 <strong><code>csv_summary</code></strong>: Convenient wrapper for running <code>Hmisc::describe</code> on a CSV and exporting the result as another CSV
@@ -139,20 +142,19 @@
 <li>Removed reason: Not often necessary to count the relative frequency of categorical variables for its own sake</li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="spatial">Spatial<a class="anchor" aria-label="anchor" href="#spatial"></a>
-</h3>
+<li>
+<strong><code>morpho_wiz</code></strong>: Identifies and sorts the unique values of every column in a supplied CSV. The function name comes from its original <em>raison d’etre</em> as a helper function for pre-processing before submission to dataONE’s Morpho software
 <ul>
+<li>Removed reason: Very narrow use-case that may be deprecated (dataONE’s current Morpho submission process may now differ from when this function was written)</li>
+</ul>
+</li>
 <li>
 <strong><code>regrid_to_regular</code></strong>: Interpolates a netCDF file to World Geodetic System 84 (WGS84)
 <ul>
-<li>Removed reason: uses superseded spatial R packages</li>
+<li>Removed reason: Uses superseded spatial R packages</li>
 </ul>
 </li>
 </ul>
-</div>
 </div>
 </div>
 
