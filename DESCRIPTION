@@ -28,7 +28,6 @@ Imports:
    methods,
    pluralize,
    purrr,
-   R.utils,
    readr,
    readxl,
    stringr,
