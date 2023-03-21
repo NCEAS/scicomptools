@@ -27,6 +27,14 @@ devtools::install_github("NCEAS/scicomptools")
 
 ## Current Functions
 
+### Google Drive
+
+- **`drive_toc`**: Identifies the complete folder hierarchy within a
+  user-supplied URL for a Google Drive folder. Useful in generating a
+  table of contents for a Google Drive. Also allows exclusion of folders
+  by name if there are folders that you would not want included in a
+  table of contents
+
 ### Data Description / Wrangling
 
 - **`read_xl_sheets`**: Reads in all the sheets in a supplied Microsoft
@@ -39,16 +47,11 @@ devtools::install_github("NCEAS/scicomptools")
   webinar (handles both the attendance and post-webinar survey
   dataframes)
 
+### Text Mining
+
 - **`word_cloud_prep`**: Performs text mining on a given text column of
   a dataframe to create a dataframe that is ready for word cloud
   creation
-
-- **`morpho_wiz`**: Identifies and sorts the unique values of every
-  column in a supplied CSV. The function name comes from its original
-  *raison d’etre* as a helper function for pre-processing before
-  submission to dataONE’s Morpho software
-
-### Visualization
 
 - **`word_cloud_plot`**: Performs text mining (using `word_cloud_prep`)
   *and* creates a simple `ggplot2` word cloud (for those who don’t want
@@ -88,10 +91,8 @@ These functions used to be included in the repository but have since
 been flagged as deprecated and filed in the eponymous folder in this
 repository. Installing this package using `install_github` **will not**
 get these functions, so if you’d like them you’ll need to clone this
-repository (or download the specific files that you want). Deprecated
-functions are as follows:
-
-### Data Description / Wrangling
+repository (or download the specific files that you want from the
+“deprecated” folder). Deprecated functions are as follows:
 
 - **`csv_summary`**: Convenient wrapper for running `Hmisc::describe` on
   a CSV and exporting the result as another CSV
@@ -103,9 +104,13 @@ functions are as follows:
   categorical variables in a given dataframe
   - Removed reason: Not often necessary to count the relative frequency
     of categorical variables for its own sake
-
-### Spatial
-
+- **`morpho_wiz`**: Identifies and sorts the unique values of every
+  column in a supplied CSV. The function name comes from its original
+  *raison d’etre* as a helper function for pre-processing before
+  submission to dataONE’s Morpho software
+  - Removed reason: Very narrow use-case that may be deprecated
+    (dataONE’s current Morpho submission process may now differ from
+    when this function was written)
 - **`regrid_to_regular`**: Interpolates a netCDF file to World Geodetic
   System 84 (WGS84)
-  - Removed reason: uses superseded spatial R packages
+  - Removed reason: Uses superseded spatial R packages
