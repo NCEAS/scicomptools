@@ -21,6 +21,7 @@ Imports:
    data.tree,
    dplyr,
    gitcreds,
+   googledrive,
    ggplot2,
    ggwordcloud,
    magrittr,
