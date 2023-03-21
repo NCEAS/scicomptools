@@ -6,6 +6,8 @@
 # `scicomptools` - Tools Developed by NCEAS’ Scientific Computing Support Team
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `scicomptools` is to house all of the standalone functions
