@@ -15,6 +15,8 @@
 #' @export
 #' 
 drive_toc <- function(url = NULL, ignore_names = NULL, quiet = FALSE){
+  # Squelch visible bindings note
+  name <- id <- listed <- parent_path <- path <- NULL
   
   # Error out for missing folder URL
   if(is.null(url))
