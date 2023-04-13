@@ -82,13 +82,14 @@ drive_toc <- function(url = NULL, ignore_names = NULL, quiet = FALSE){
     # Strip out ONLY paths
     dplyr::pull(var = path)
   
-  # Split into a list of dataframes where each path is a dataframe with a column for each folder
-  contents_list <- base::lapply(X = base::strsplit(x = paths, split = "/"),
-                                FUN = function(z) base::as.data.frame(base::t(z)))
+  # Identify number of folders
+  folder_num <- base::max(stringr::str_count(string = paths, pattern = "/")) + 1
   
-  # Bind back together
-  contents_df <- contents_list %>%
-    dplyr::bind_rows() %>%
+  # Wrangle the path object as needed for `data.tree::as.Node`
+  contents_df <- as.data.frame(paths) %>%
+    # Make into a dataframe where each path is a row and each column is a folder
+    tidyr::separate_wider_delim(cols = paths, delim = '/', too_few = "align_start",
+                                names = paste0("V", 1:folder_num)) %>%
     # Also re-gain the full path string
     dplyr::mutate(pathString = paths)
   
