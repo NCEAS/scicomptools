@@ -1,11 +1,15 @@
 #' @title Extract Summary Statistics from Model Fit Object
 #' 
-#' @description Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `nlme::lme`, `lmerTest::lmer`, or `RRPP::trajectory.analysis`
+#' @description Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::lm`, `nlme::lme`, `lmerTest::lmer`, or `RRPP::trajectory.analysis`
 #' 
-#' @param mod_fit (lme, trajectory.analysis) Model fit object of supported class
+#' @param mod_fit (lme, trajectory.analysis) Model fit object of supported class (see function description text)
 #' @param traj_angle (character) Either "deg" or "rad" for whether trajectory analysis angle information should be extracted in degrees or radians. Only required if model is trajectory analysis
 #' 
-
+#' @return (data.frame) Dataframe of core summary statistics for the given model
+#' 
+#' @importFrom magrittr %>%
+#' @export
+#'  
 stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
   # Global Checks ----
   # Squelch visible bindings note
@@ -17,11 +21,29 @@ stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
   
   # Error out if model is not of any supported class
   if(
+    methods::is(object = mod_fit, class2 = "lm") != TRUE &
     methods::is(object = mod_fit, class2 = "lmerModLmerTest") != TRUE &
     methods::is(object = mod_fit, class2 = "lme") != TRUE &
     methods::is(object = mod_fit, class2 = "trajectory.analysis") != TRUE
     )
   stop("Model type is not supported")
+  
+  # Linear Model (`stats::lm`) ----
+  if(methods::is(object = mod_fit, class2 = "lm") == TRUE) {
+    
+    # Extract summary from data
+    summary_v1 <- base::as.data.frame(base::summary(mod_fit)$coefficients)
+    
+    # Wrangle to simplify columns
+    stat_out <- summary_v1 %>%
+      # Add terms as a column
+      dplyr::mutate(Term = row.names(summary_v1),
+                    .before = dplyr::everything()) %>%
+      # Rename some columns
+      dplyr::rename(Std_Error = `Std. Error`,
+                    T_Value = `t value`,
+                    P_Value = `Pr(>|t|)`)
+    }
   
   # Linear Mixed-Effects Model (`lmerTest::lmer`) ----
   if(methods::is(object = mod_fit, class2 = "lmerModLmerTest") == TRUE){
