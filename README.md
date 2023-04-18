@@ -29,7 +29,14 @@ devtools::install_github("NCEAS/scicomptools")
 
 ## Current Functions
 
-### Google Drive
+### Modeling / Analysis
+
+- **`stat_extract`** Extracts core summary statistics for model fit
+  objects returned by the following functions: `lmerTest::lmer`,
+  `stats::lm`, `stats::nls`, `stats::t.test`, `nlme::lme`, and
+  `RRPP::trajectory.analysis`
+
+### Google Drive-Related
 
 - **`drive_toc`**: Identifies the complete folder hierarchy within a
   user-supplied URL for a Google Drive folder. Useful in generating a
@@ -58,20 +65,6 @@ devtools::install_github("NCEAS/scicomptools")
 - **`word_cloud_plot`**: Performs text mining (using `word_cloud_prep`)
   *and* creates a simple `ggplot2` word cloud (for those who don’t want
   to handle their own plotting aesthetics)
-
-### Modeling / Analysis
-
-- **`traj_extract`** Extracts summary statistics for all three metrics
-  analyzed by `RRPP::trajectory.analysis` (i.e., distance, shape, and
-  angle)
-
-- **`stat_export`**: Exports a tidy CSV of summary statistics of a
-  supported statistical test. Currently the following tests are
-  supported: `lmerTest::lmer`, `stats::lm`, `stats::nls`, and
-  `stats::t.test`
-
-- **`nlme_extract`**: Extracts summary statistics from a `nlme::lme`
-  model fit object
 
 ### Other
 
