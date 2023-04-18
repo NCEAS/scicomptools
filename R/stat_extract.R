@@ -1,6 +1,6 @@
 #' @title Extract Summary Statistics from Model Fit Object
 #' 
-#' @description Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::lm`, `stats_nls`, `nlme::lme`, `lmerTest::lmer`, or `RRPP::trajectory.analysis`
+#' @description Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::t.test`, `stats::lm`, `stats_nls`, `nlme::lme`, `lmerTest::lmer`, or `RRPP::trajectory.analysis`
 #' 
 #' @param mod_fit (lme, trajectory.analysis) Model fit object of supported class (see function description text)
 #' @param traj_angle (character) Either "deg" or "rad" for whether trajectory analysis angle information should be extracted in degrees or radians. Only required if model is trajectory analysis
@@ -20,14 +20,24 @@ stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
     stop("Model fit must be supplied")
   
   # Error out if model is not of any supported class
-  if(
-    methods::is(object = mod_fit, class2 = "nls") != TRUE &
-    methods::is(object = mod_fit, class2 = "lm") != TRUE &
-    methods::is(object = mod_fit, class2 = "lmerModLmerTest") != TRUE &
-    methods::is(object = mod_fit, class2 = "lme") != TRUE &
-    methods::is(object = mod_fit, class2 = "trajectory.analysis") != TRUE
-    )
-  stop("Model type is not supported")
+  if(methods::is(object = mod_fit, class2 = "htest") != TRUE &
+     methods::is(object = mod_fit, class2 = "nls") != TRUE &
+     methods::is(object = mod_fit, class2 = "lm") != TRUE &
+     methods::is(object = mod_fit, class2 = "lmerModLmerTest") != TRUE &
+     methods::is(object = mod_fit, class2 = "lme") != TRUE &
+     methods::is(object = mod_fit, class2 = "trajectory.analysis") != TRUE
+  )
+    stop("Model type is not supported")
+  
+  # Student's t-Test (`stats::t.test`) ----
+  if(methods::is(object = mod_fit, class2 = "htest") == TRUE){
+  
+    # Strip out relevant components
+    stat_out <- base::data.frame("Estimate" = base::as.numeric(mod_fit$estimate),
+                                 "DF" = base::as.numeric(mod_fit$parameter),
+                                 "T_Value" = base::as.numeric(mod_fit$statistic),
+                                 "P_Value" = base::as.numeric(mod_fit$p.value))
+  }
   
   # Linear Model (`stats::lm`) ----
   if(methods::is(object = mod_fit, class2 = "lm") == TRUE) {
