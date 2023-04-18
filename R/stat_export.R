@@ -21,7 +21,7 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
                         t_dig = 2, p_dig = 4){
   # Squelch visible bindings note
   Estimate <- `Std. Error` <- df <- `t value` <- NULL
-  `Pr(>|t|)` <- term <- SE <- p <- mod_t <- NULL
+  `Pr(>|t|)` <- term <- SE <- p <- NULL
 
   # Error out if model isn't provided
   if(base::is.null(model_obj)) stop("Model object is required")
@@ -130,10 +130,10 @@ stat_export <- function(model_obj = NULL, model_type = "lmer",
 
     # Extract relevant bit
     results <- data.frame(
-      "Estimate" = base::round(base::as.numeric(mod_t$estimate), digits = est_dig),
-      "df" = base::round(mod_t$parameter, digits = df_dig),
-      "t" = base::round(mod_t$statistic, digits = t_dig),
-      "p" = base::round(mod_t$p.value, digits = p_dig))
+      "Estimate" = base::round(base::as.numeric(model_obj$estimate), digits = est_dig),
+      "df" = base::round(model_obj$parameter, digits = df_dig),
+      "t" = base::round(model_obj$statistic, digits = t_dig),
+      "p" = base::round(model_obj$p.value, digits = p_dig))
 
     # Remove rownames
     base::rownames(results) <- NULL
