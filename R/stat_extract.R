@@ -12,8 +12,10 @@
 #'  
 stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
   # Global Checks ----
-  # Squelch visible bindings note
-  
+  # Squelch 'visible bindings' note
+  `Std. Error` <- `Std.Error` <- `t value` <- `t-value` <- df <- NULL
+  d <- `UCL (95%)` <- Z <- r <- metric <- angle_r <- NULL
+  `Pr(>|t|)` <- `p-value` <- `Pr > d` <- `Pr > angle` <- P_Value <- NULL
   
   # Error out if the model is not provided
   if(is.null(mod_fit))
