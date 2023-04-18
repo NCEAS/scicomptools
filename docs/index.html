@@ -83,7 +83,16 @@
 <h2 id="current-functions">Current Functions<a class="anchor" aria-label="anchor" href="#current-functions"></a>
 </h2>
 <div class="section level3">
-<h3 id="google-drive">Google Drive<a class="anchor" aria-label="anchor" href="#google-drive"></a>
+<h3 id="modeling--analysis">Modeling / Analysis<a class="anchor" aria-label="anchor" href="#modeling--analysis"></a>
+</h3>
+<ul>
+<li>
+<strong><code>stat_extract</code></strong> Extracts core summary statistics for model fit objects returned by the following functions: <code><a href="https://rdrr.io/pkg/lmerTest/man/lmer.html" class="external-link">lmerTest::lmer</a></code>, <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">stats::lm</a></code>, <code><a href="https://rdrr.io/r/stats/nls.html" class="external-link">stats::nls</a></code>, <code><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">stats::t.test</a></code>, <code><a href="https://rdrr.io/pkg/nlme/man/lme.html" class="external-link">nlme::lme</a></code>, and <code><a href="https://rdrr.io/pkg/RRPP/man/trajectory.analysis.html" class="external-link">RRPP::trajectory.analysis</a></code>
+</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="google-drive-related">Google Drive-Related<a class="anchor" aria-label="anchor" href="#google-drive-related"></a>
 </h3>
 <ul>
 <li>
@@ -105,15 +114,6 @@
 <ul>
 <li><p><strong><code>word_cloud_prep</code></strong>: Performs text mining on a given text column of a dataframe to create a dataframe that is ready for word cloud creation</p></li>
 <li><p><strong><code>word_cloud_plot</code></strong>: Performs text mining (using <code>word_cloud_prep</code>) <em>and</em> creates a simple <code>ggplot2</code> word cloud (for those who don’t want to handle their own plotting aesthetics)</p></li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="modeling--analysis">Modeling / Analysis<a class="anchor" aria-label="anchor" href="#modeling--analysis"></a>
-</h3>
-<ul>
-<li><p><strong><code>traj_extract</code></strong> Extracts summary statistics for all three metrics analyzed by <code><a href="https://rdrr.io/pkg/RRPP/man/trajectory.analysis.html" class="external-link">RRPP::trajectory.analysis</a></code> (i.e., distance, shape, and angle)</p></li>
-<li><p><strong><code>stat_export</code></strong>: Exports a tidy CSV of summary statistics of a supported statistical test. Currently the following tests are supported: <code><a href="https://rdrr.io/pkg/lmerTest/man/lmer.html" class="external-link">lmerTest::lmer</a></code>, <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">stats::lm</a></code>, <code><a href="https://rdrr.io/r/stats/nls.html" class="external-link">stats::nls</a></code>, and <code><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">stats::t.test</a></code></p></li>
-<li><p><strong><code>nlme_extract</code></strong>: Extracts summary statistics from a <code><a href="https://rdrr.io/pkg/nlme/man/lme.html" class="external-link">nlme::lme</a></code> model fit object</p></li>
 </ul>
 </div>
 <div class="section level3">
