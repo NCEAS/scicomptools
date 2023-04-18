@@ -13,7 +13,7 @@ nlme_extract <- function(fit = NULL){
     stop("`fit` must be specified")
   
   # Error out for inappropriate type of fit
-  if(methods::is(object = fit, class2 = "lme"))
+  if(!methods::is(object = fit, class2 = "lme"))
     stop("`fit` must be class 'lme'")
   
   # Grab summary of the fit object
