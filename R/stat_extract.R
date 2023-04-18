@@ -1,6 +1,6 @@
 #' @title Extract Summary Statistics from Model Fit Object
 #' 
-#' @description Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::t.test`, `stats::lm`, `stats_nls`, `nlme::lme`, `lmerTest::lmer`, or `RRPP::trajectory.analysis`
+#' @description Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::t.test`, `stats::lm`, `stats_nls`, `nlme::lme`, `lmerTest::lmer`, `ecodist::MRM`, or `RRPP::trajectory.analysis`
 #' 
 #' @param mod_fit (lme, trajectory.analysis) Model fit object of supported class (see function description text)
 #' @param traj_angle (character) Either "deg" or "rad" for whether trajectory analysis angle information should be extracted in degrees or radians. Only required if model is trajectory analysis
@@ -14,7 +14,7 @@ stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
   # Global Checks ----
   # Squelch 'visible bindings' note
   `Std. Error` <- `Std.Error` <- `t value` <- `t-value` <- df <- NULL
-  d <- `UCL (95%)` <- Z <- r <- metric <- angle_r <- NULL
+  . <- d <- `UCL (95%)` <- Z <- r <- metric <- angle_r <- NULL
   `Pr(>|t|)` <- `p-value` <- `Pr > d` <- `Pr > angle` <- P_Value <- NULL
   
   # Error out if the model is not provided
@@ -27,6 +27,7 @@ stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
      methods::is(object = mod_fit, class2 = "lm") != TRUE &
      methods::is(object = mod_fit, class2 = "lmerModLmerTest") != TRUE &
      methods::is(object = mod_fit, class2 = "lme") != TRUE &
+     methods::is(object = mod_fit, class2 = "list") != TRUE &
      methods::is(object = mod_fit, class2 = "trajectory.analysis") != TRUE
   )
     stop("Model type is not supported")
@@ -110,8 +111,23 @@ stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
   }
   
   # Multiple Regression on distance Matrices (MRM) ----
-  
-  ### Issue with `ecodist` package that needs resolving before we can continue here
+  if(methods::is(object = mod_fit, class2 = "list") == TRUE){
+    
+    # Strip out core information
+    summary_v1 <- base::as.data.frame(mod_fit$coef)
+    
+    # Generalize column names
+    names(summary_v1) <- c("Response", "Term_P_Value")
+    
+    # Wrangle to cleaner format
+    stat_out <- summary_v1 %>%
+      # Add in Term column
+      dplyr::mutate(Term = row.names(.), .before = dplyr::everything()) %>%
+      # Add additional columns
+      dplyr::mutate(F_Value = mod_fit$F.test[1],
+                    R2 = mod_fit$r.squared[1],
+                    P_Value = mod_fit$r.squared[2])
+  }
   
   # Trajectory Analysis ----
   if(methods::is(object = mod_fit, class2 = "trajectory.analysis") == TRUE){

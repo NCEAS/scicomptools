@@ -15,5 +15,5 @@ stat_extract(mod_fit = NULL, traj_angle = "deg")
 (data.frame) Dataframe of core summary statistics for the given model
 }
 \description{
-Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::t.test`, `stats::lm`, `stats_nls`, `nlme::lme`, `lmerTest::lmer`, or `RRPP::trajectory.analysis`
+Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::t.test`, `stats::lm`, `stats_nls`, `nlme::lme`, `lmerTest::lmer`, `ecodist::MRM`, or `RRPP::trajectory.analysis`
 }

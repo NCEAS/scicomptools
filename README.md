@@ -33,8 +33,8 @@ devtools::install_github("NCEAS/scicomptools")
 
 - **`stat_extract`** Extracts core summary statistics for model fit
   objects returned by the following functions: `lmerTest::lmer`,
-  `stats::lm`, `stats::nls`, `stats::t.test`, `nlme::lme`, and
-  `RRPP::trajectory.analysis`
+  `stats::lm`, `stats::nls`, `stats::t.test`, `nlme::lme`,
+  `ecodist::MRM`, and `RRPP::trajectory.analysis`
 
 ### Google Drive-Related
 
