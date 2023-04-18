@@ -34,8 +34,7 @@ Imports:
    tibble,
    tidyr,
    tidytext,
-   tidyxl,
-   utils
+   tidyxl
 Suggests:
    nlme,
    RRPP
