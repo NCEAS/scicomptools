@@ -7,16 +7,56 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = F}
+```{r knitr-mechanics, include = F}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
-```{r setup}
+```{r pre-setup, echo = F, message = F}
 # install.packages("devtools")
 # devtools::install_github("NCEAS/scicomptools")
+```
+
+## Overview
+
+The `scicomptools` package is built to house self-contained tools built by the NCEAS Scientific Computing Team. These functions are written based on the needs of various synthesis working groups so each function operates more or less independently of the others. We hope these tools will be valuable to users in and outside of the context for which they were designed!
+
+This vignette describes some of the main functions of `scicomptools` using the examples.
+
+```{r setup}
 library(scicomptools)
 ```
 
 
 
 
+
+
+### Handling Two Working Directories
+
+Many of the working groups that we support work both on local computers as well as in remote servers. We leverage Git and GitHub to pass code updates back and forth between the two environments but updating the working directory every time such a pivot is made is cumbersome.
+
+We have thus written `wd_loc` for this purpose! `wd_loc` allows users to specify two working directory paths and toggle between them using a logical argument.
+
+The `local` argument accepts a logical value. If `local = TRUE`, then the file path specified in the `local_path` argument is returned as a character string. If `local = FALSE` then the file path specified in the `remote_path` argument is used. `local_path` defaults to `base::getwd()` so it need not be specified if you are using RStudio Projects.
+
+You can run `wd_loc` inside of `base::setwd` if desired though we recommend assigning the file path to a "path" object and invoking that whenever import or export must be done.
+
+```{r wd_loc, eval = F}
+scicomptools::wd_loc(local = TRUE,
+                     local_path = getwd(),
+                     remote_path = file.path("path on server"))
+```
+
+```{r wd_loc message, echo = F}
+message("/Users/.../scicomptools/vignettes")
+```
+
+### Checking Tokens
+
+Some operations require passing a user's personal access token (a.k.a. "PAT") to RStudio. These workflows can fail unexpectedly if the token is improperly set or expires so it is valuable to double check whether the token is still embedded.
+
+The `token_check` function checks whether a token is attached and messages whether or not one is found. Currently this function supports checks for Qualtrics and GitHub tokens but this can be expanded if need be ([post a GitHub issue](https://github.com/NCEAS/scicomptools/issues) if you have another token in mind!). Additionally, if `secret = TRUE` (the default) the success message simply identifies whether a token is found. If `secret = FALSE` the success message prints the token string in the console.
+
+```{r token_check}
+scicomptools::token_check(api = "github", secret = TRUE)
+```
