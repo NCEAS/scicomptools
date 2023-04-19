@@ -17,6 +17,7 @@ Language: en-US
 URL: https://github.com/NCEAS/scicomptools
 BugReports: https://github.com/NCEAS/scicomptools/issues
 RoxygenNote: 7.2.3
+VignetteBuilder: knitr
 Imports:
    data.tree,
    dplyr,
@@ -36,5 +37,7 @@ Imports:
    tidytext,
    tidyxl
 Suggests:
-   nlme,
-   RRPP
+    knitr,
+    nlme,
+    rmarkdown,
+    RRPP
