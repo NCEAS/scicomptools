@@ -1,6 +1,6 @@
 #' @title Define Local or Remote Working Directories
 #' 
-#' @description While working on the same script both in a remote server and locally on your home computer, defining file paths can be unwieldy and may even require duplicate scripts--one for each location--that require maintainenance in parallel. This function allows you to define whether you are working locally or not and specify the path to use in either case.
+#' @description While working on the same script both in a remote server and locally on your home computer, defining file paths can be unwieldy and may even require duplicate scripts--one for each location--that require maintenance in parallel. This function allows you to define whether you are working locally or not and specify the path to use in either case.
 #' 
 #' @param local (logical) Whether you are working locally or on a remote server
 #' @param local_path (character) File path to use if `local` is `TRUE` (defaults to `getwd()`)

@@ -17,5 +17,5 @@ wd_loc(local = TRUE, local_path = getwd(), remote_path = NULL)
 (character) Either the entry of `local_path` or `remote_path` depending on whether `local` is set as true or false
 }
 \description{
-While working on the same script both in a remote server and locally on your home computer, defining file paths can be unwieldy and may even require duplicate scripts--one for each location--that require maintainenance in parallel. This function allows you to define whether you are working locally or not and specify the path to use in either case.
+While working on the same script both in a remote server and locally on your home computer, defining file paths can be unwieldy and may even require duplicate scripts--one for each location--that require maintenance in parallel. This function allows you to define whether you are working locally or not and specify the path to use in either case.
 }
