@@ -28,7 +28,29 @@ library(scicomptools)
 
 ### Extract Summary Statistics Tables
 
+Our most requested task--by a wide margin--is to help streamline an analytical workflow by stripping the summary statistics (e.g., test statistic, P value, degrees of freedom, etc.) from whichever statistical test the group has decided to use. As we've developed extraction workflows for various tests we have centralized them in the `stat_extract` function. 
 
+Currently, `stat_extract` accepts model fit objects from `lmerTest::lmer`, `stats::lm`, `stats::nls`, `stats::t.test`, `nlme::lme`, `ecodist::MRM`, and `RRPP::trajectory.analysis`. All model fits should be passed to the `mod_fit` argument. If the model is a trajectory analysis, the `traj_angle` argument must be supplied as well (either "deg" or "rad" for whether the multivariate angle should be expressed in degrees or radians). Once the models are fit, they can be passed to `stat_extract` for extraction of typically-desired summary values.
+
+**Note:** `stat_extract` determines the model type automatically so this need not be specified.
+
+```{r stat_extract}
+# Fit models of several accepted types
+## Student's t-Test
+mod_t <- t.test(x = 1:10, y = 7:20)
+
+## Nonlinear Least Squares
+mod_nls <- fm1DNase1 <- nls(density ~ SSlogis(log(conc), Asym, xmid, scal), data = DNase)
+
+# Extract the relevant information
+## t-Test
+scicomptools::stat_extract(mod_fit = mod_t)
+
+## NLS
+scicomptools::stat_extract(mod_fit = mod_nls)
+```
+
+As more tests are used by working groups we plan on adding them to the set of model objects that `stat_extract` supports. Feel free to [post a GitHub issue](https://github.com/NCEAS/scicomptools/issues) if you have a model type in mind that you'd like to request we expand `stat_extract` to support.
 
 ### Create Google Drive Table of Contents
 
