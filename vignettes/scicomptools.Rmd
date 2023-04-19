@@ -26,10 +26,39 @@ This vignette describes some of the main functions of `scicomptools` using the e
 library(scicomptools)
 ```
 
+### Extract Summary Statistics Tables
 
 
 
+### Create Google Drive Table of Contents
 
+
+
+### Read in Multiple Excel Sheets
+
+Working groups often store their data in Microsoft Excel files with multiple sheets (often one sheet per data type or per collection location). We wrote `read_xl_sheets` to import every sheet in a user-specified MS Excel file and store each sheet in a list. If every sheet has the same columns, you can then easily unlist them into a flat dataframe (rather than the somewhat laborious process of reading in each sheet separately).
+
+`read_xl_sheets` only has a single argument (`file_name`) which accepts the name of (and path to) the MS Excel file to read.
+
+```{r read_xl_sheets}
+# Read in sheets
+sheet_list <- scicomptools::read_xl_sheets(file_name = system.file("extdata", "faux_data.xlsx", 
+                                                     package = "scicomptools"))
+
+# Show structure
+dplyr::glimpse(sheet_list)
+```
+
+We also wrote a companion function named `read_xl_format` where the specific formatting of all *cells* in the sheets of an Excel file is extracted. This is useful if fill color or text formatting is used to denote information that is not redundant with columns (i.e., information that is lost when reading an Excel sheet into an API). `read_xl_format` uses the same syntax as `read_xl_sheets` to maximize interoperability.
+
+```{r read_xl_format}
+# Read in *format of* sheets
+form_list <- scicomptools::read_xl_format(file_name = system.file("extdata", "faux_data.xlsx", 
+                                                     package = "scicomptools"))
+
+# Show structure of that
+dplyr::glimpse(form_list)
+```
 
 ### Handling Two Working Directories
 
