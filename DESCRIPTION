@@ -4,7 +4,7 @@ Title: Tools Developed by NCEAS' Scientific Computing Support Team
 Version: 0.3.0
 Authors@R: c(
   person(given = "Julien", family = "Brun", 
-         email = "brun@nceas.ucsb.edu", 
+         email = "julien.brun@alumni.duke.edu", 
          comment = c(ORCID = "https://orcid.org/0000-0002-7751-6238"),
          role = "aut"),
   person(given = "Angel", family = "Chen",
