@@ -32,7 +32,17 @@ library(scicomptools)
 
 ### Create Google Drive Table of Contents
 
+Google Drive is by far the most common platform that the working groups we support leverage to store data. The `googledrive` package makes integrating script inputs and outputs with specified Drive folders easy but the internal folder structure of these Google Drives often becomes convoluted as projects evolve and priorities shift.
 
+We wrote the `drive_toc` function to identify all folders in a given Drive folder (either the top-level link or any sub-folder link will work) and create a diagram of this hierarchy to make it simpler for group's to visualize their Drive's "table of contents".
+
+This function has a `url` argument which requires a Drive ID (i.e., a link passed through `googledrive::as_id`). There is also an `ignore_names` argument that allows users to specify folder names that they would like excluded from the table of contents; this is useful if many sub-folders contain a "deprecated" or "archive" folder as this would greatly clutter the full table of contents to include repeated folders like these. Finally, this process can take a few seconds for complicated Drives so a message is returned by default for which folder the function is identifying sub-folders. The `quiet` argument defaults to `FALSE` so that progress is reported but it can be set to `TRUE` if you desire no message be returned.
+
+```{r drive_toc, eval = F}
+scicomptools::drive_toc(url = googledrive::as_id("https://drive.google.com/drive/u/0/folders/folder-specific-characters"),
+                        ignore_names = c("Archive", "Deprecated", "Backups"),
+                        quiet = FALSE)
+```
 
 ### Read in Multiple Excel Sheets
 
