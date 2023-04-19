@@ -1,0 +1,22 @@
+---
+title: "scicomptools Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{scicomptools Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = F}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+```{r setup}
+# install.packages("devtools")
+# devtools::install_github("NCEAS/scicomptools")
+library(scicomptools)
+```
+
+
+
+

@@ -43,3 +43,4 @@ vignettes/*.pdf
 
 # Workbench script for file testing
 workbench.R
+inst/doc
