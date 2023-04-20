@@ -5,7 +5,7 @@ Version: 0.3.0
 Authors@R: c(
   person(given = "Julien", family = "Brun", 
          email = "julien.brun@alumni.duke.edu", 
-         comment = c(ORCID = "https://orcid.org/0000-0002-7751-6238"),
+         comment = c(ORCID = "0000-0002-7751-6238"),
          role = "aut"),
   person(given = "Angel", family = "Chen",
          email = "anchen@nceas.ucsb.edu",
@@ -13,6 +13,9 @@ Authors@R: c(
   person(given = "Gabriel", family = "Daldegan", 
          email = "gdaldegan@nceas.ucsb.edu", 
          role = "aut"),
+  person(given = "Gabe", family = "De La Rosa",
+         email = "delarosa@nceas.ucsb.edu",
+         role = "ctb"),
   person(given = "Kara", family = "Koenig",
          email = "karakoenig@umail.ucsb.edu", 
          role = "aut"),
