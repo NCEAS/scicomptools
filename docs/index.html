@@ -120,44 +120,21 @@
 </ul>
 </div>
 <div class="section level3">
-<h3 id="other">Other<a class="anchor" aria-label="anchor" href="#other"></a>
+<h3 id="working-directory-management">Working Directory Management<a class="anchor" aria-label="anchor" href="#working-directory-management"></a>
 </h3>
 <ul>
-<li><p><strong><code>wd_loc</code></strong>: Allows user to easily specify file paths both for local and remote work and then toggle between them in the same script as needed. Useful when work is being done both in local computers and on a remote server</p></li>
-<li><p><strong><code>token_check</code></strong>: Checks for whether a token for the supplied API can be found for your current R session. For example, Qualtrics allows direct acquisition of data from R <em>if</em> you have a token and your R session “knows” that string. This function quickly checks whether you’d be able to use that workflow (currently only supports search for Qualtrics token but could be easily expanded!)</p></li>
+<li>
+<strong><code>wd_loc</code></strong>: Allows user to easily specify file paths both for local and remote work and then toggle between them in the same script as needed. Useful when work is being done both in local computers and on a remote server</li>
 </ul>
 </div>
+<div class="section level3">
+<h3 id="checking-access-tokens">Checking Access Tokens<a class="anchor" aria-label="anchor" href="#checking-access-tokens"></a>
+</h3>
+<ul>
+<li>
+<strong><code>token_check</code></strong>: Checks for whether a token for the supplied API can be found for your current R session. For example, Qualtrics allows direct acquisition of data from R <em>if</em> you have a token and your R session “knows” that string. This function quickly checks whether you’d be able to use that workflow (currently only supports search for Qualtrics token but could be easily expanded!)</li>
+</ul>
 </div>
-<div class="section level2">
-<h2 id="deprecated-functions">Deprecated Functions<a class="anchor" aria-label="anchor" href="#deprecated-functions"></a>
-</h2>
-<p>These functions used to be included in the repository but have since been flagged as deprecated and filed in the eponymous folder in this repository. Installing this package using <code>install_github</code> <strong>will not</strong> get these functions, so if you’d like them you’ll need to clone this repository (or download the specific files that you want from the “deprecated” folder). Deprecated functions are as follows:</p>
-<ul>
-<li>
-<strong><code>csv_summary</code></strong>: Convenient wrapper for running <code>Hmisc::describe</code> on a CSV and exporting the result as another CSV
-<ul>
-<li>Removed reason: <code>Hmisc::describe</code> is very similar to <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">base::summary</a></code> and an exporting function that doesn’t do significant manipulation could just run in the Console instead of making a new file (personal preference there though)</li>
-</ul>
-</li>
-<li>
-<strong><code>categorical_frequency</code></strong>: Counts the frequency of levels of all categorical variables in a given dataframe
-<ul>
-<li>Removed reason: Not often necessary to count the relative frequency of categorical variables for its own sake</li>
-</ul>
-</li>
-<li>
-<strong><code>morpho_wiz</code></strong>: Identifies and sorts the unique values of every column in a supplied CSV. The function name comes from its original <em>raison d’etre</em> as a helper function for pre-processing before submission to dataONE’s Morpho software
-<ul>
-<li>Removed reason: Very narrow use-case that may be deprecated (dataONE’s current Morpho submission process may now differ from when this function was written)</li>
-</ul>
-</li>
-<li>
-<strong><code>regrid_to_regular</code></strong>: Interpolates a netCDF file to World Geodetic System 84 (WGS84)
-<ul>
-<li>Removed reason: Uses superseded spatial R packages</li>
-</ul>
-</li>
-</ul>
 </div>
 </div>
 
@@ -192,7 +169,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Julien Brun <br><small class="roles"> Author </small> <a href="https://orcid.org/https://orcid.org/0000-0002-7751-6238" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Julien Brun <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-7751-6238" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Angel Chen <br><small class="roles"> Author, maintainer </small>  </li>
 <li>Gabriel Daldegan <br><small class="roles"> Author </small>  </li>
 <li>Kara Koenig <br><small class="roles"> Author </small>  </li>
