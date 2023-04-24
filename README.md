@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src = "man/figures/scicomptools_hex.png" align = "right" width = "15%" />
+<img src = "man/figures/scicomptools_hex.png" align = "right" width = "15%"/>
 
 # `scicomptools` - Tools Developed by NCEAS’ Scientific Computing Support Team
 
