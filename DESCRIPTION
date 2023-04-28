@@ -21,6 +21,7 @@ Authors@R: c(
          role = "ctb"),
   person(given = "Kara", family = "Koenig",
          email = "kara.koenig392@gmail.com", 
+         comment = c(ORCID = "0000-0002-6371-7821"),
          role = "aut"),
   person(given = "Nicholas J", family = "Lyon", 
          email = "lyon@nceas.ucsb.edu",
