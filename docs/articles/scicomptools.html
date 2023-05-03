@@ -99,7 +99,7 @@ test the group has decided to use. As we’ve developed extraction
 workflows for various tests we have centralized them in the
 <code>stat_extract</code> function.</p>
 <p>Currently, <code>stat_extract</code> accepts model fit objects from
-<code><a href="https://rdrr.io/pkg/lmerTest/man/lmer.html" class="external-link">lmerTest::lmer</a></code>, <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">stats::lm</a></code>,
+<code>lmerTest::lmer</code>, <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">stats::lm</a></code>,
 <code><a href="https://rdrr.io/r/stats/nls.html" class="external-link">stats::nls</a></code>, <code><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">stats::t.test</a></code>,
 <code><a href="https://rdrr.io/pkg/nlme/man/lme.html" class="external-link">nlme::lme</a></code>, <code><a href="https://rdrr.io/pkg/ecodist/man/MRM.html" class="external-link">ecodist::MRM</a></code>, and
 <code><a href="https://rdrr.io/pkg/RRPP/man/trajectory.analysis.html" class="external-link">RRPP::trajectory.analysis</a></code>. All model fits should be passed
@@ -129,8 +129,8 @@ type automatically so this need not be specified.</p>
 <span><span class="co">## NLS</span></span>
 <span><span class="fu">scicomptools</span><span class="fu">::</span><span class="fu"><a href="../reference/stat_extract.html">stat_extract</a></span><span class="op">(</span>mod_fit <span class="op">=</span> <span class="va">mod_nls</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   Term Estimate  Std_Error  T_Value      P_Value</span></span>
-<span><span class="co">#&gt; 1 Asym 2.485319 0.06287043 39.53081 1.519037e-88</span></span>
-<span><span class="co">#&gt; 2 xmid 1.518117 0.06396583 23.73325 2.704646e-56</span></span>
+<span><span class="co">#&gt; 1 Asym 2.485319 0.06287043 39.53081 1.519039e-88</span></span>
+<span><span class="co">#&gt; 2 xmid 1.518117 0.06396583 23.73325 2.704648e-56</span></span>
 <span><span class="co">#&gt; 3 scal 1.098307 0.02442013 44.97549 2.203937e-97</span></span></code></pre></div>
 <p>As more tests are used by working groups we plan on adding them to
 the set of model objects that <code>stat_extract</code> supports. Feel
@@ -151,7 +151,7 @@ in a given Drive folder (either the top-level link or any sub-folder
 link will work) and create a diagram of this hierarchy to make it
 simpler for group’s to visualize their Drive’s “table of contents”.</p>
 <p>This function has a <code>url</code> argument which requires a Drive
-ID (i.e., a link passed through <code><a href="https://googledrive.tidyverse.org/reference/drive_id.html" class="external-link">googledrive::as_id</a></code>). There
+ID (i.e., a link passed through <code><a href="https://googledrive.tidyverse.org/reference/as_id.html" class="external-link">googledrive::as_id</a></code>). There
 is also an <code>ignore_names</code> argument that allows users to
 specify folder names that they would like excluded from the table of
 contents; this is useful if many sub-folders contain a “deprecated” or
@@ -163,7 +163,7 @@ by default for which folder the function is identifying sub-folders. The
 progress is reported but it can be set to <code>TRUE</code> if you
 desire no message be returned.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">scicomptools</span><span class="fu">::</span><span class="fu"><a href="../reference/drive_toc.html">drive_toc</a></span><span class="op">(</span>url <span class="op">=</span> <span class="fu">googledrive</span><span class="fu">::</span><span class="fu"><a href="https://googledrive.tidyverse.org/reference/drive_id.html" class="external-link">as_id</a></span><span class="op">(</span><span class="st">"https://drive.google.com/drive/u/0/folders/folder-specific-characters"</span><span class="op">)</span>,</span>
+<code class="sourceCode R"><span><span class="fu">scicomptools</span><span class="fu">::</span><span class="fu"><a href="../reference/drive_toc.html">drive_toc</a></span><span class="op">(</span>url <span class="op">=</span> <span class="fu">googledrive</span><span class="fu">::</span><span class="fu"><a href="https://googledrive.tidyverse.org/reference/as_id.html" class="external-link">as_id</a></span><span class="op">(</span><span class="st">"https://drive.google.com/drive/u/0/folders/folder-specific-characters"</span><span class="op">)</span>,</span>
 <span>                        ignore_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Archive"</span>, <span class="st">"Deprecated"</span>, <span class="st">"Backups"</span><span class="op">)</span>,</span>
 <span>                        quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 </div>
