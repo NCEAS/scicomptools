@@ -13,3 +13,6 @@ These functions used to be included in the repository but have since been flagge
 
 - **`regrid_to_regular`**: Interpolates a netCDF file to World Geodetic System 84 (WGS84)
     - Removed reason: Uses superseded spatial R packages
+
+- **`zoom_webinar_fix`**: Processes the raw CSVs output by Zoom after a webinar (handles both the attendance and post-webinar survey dataframes)
+    - Removed reason: Does not quite fit the theme of `scicomptools` and is quite context-dependent 
