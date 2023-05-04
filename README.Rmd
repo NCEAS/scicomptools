@@ -44,8 +44,6 @@ devtools::install_github("NCEAS/scicomptools")
 
 - **`read_xl_format`**: Identifies the formatting of every cell in a supplied Microsoft Excel workbook (including comment text)
 
-- **`zoom_webinar_fix`**: Processes the raw CSVs output by Zoom after a webinar (handles both the attendance and post-webinar survey dataframes)
-
 ### Text Mining
 
 - **`word_cloud_prep`**: Performs text mining on a given text column of a dataframe to create a dataframe that is ready for word cloud creation
