@@ -17,3 +17,14 @@ stat_extract(mod_fit = NULL, traj_angle = "deg")
 \description{
 Accepts model fit object and extracts core statistical information. This includes P value, test statistic, degrees of freedom, etc. Currently accepts the following model types: `stats::t.test`, `stats::lm`, `stats_nls`, `nlme::lme`, `lmerTest::lmer`, `ecodist::MRM`, or `RRPP::trajectory.analysis`
 }
+\examples{
+# Create some example data
+x <- c(3.5, 2.1, 7.5, 5.6, 3.3, 6.0, 5.6)
+y <- c(2.3, 4.7, 7.8, 9.1, 4.5, 3.6, 5.1)
+
+# Fit a linear model
+mod <- lm(y ~ x)
+
+# Extract the relevant information
+stat_extract(mod_fit = mod)
+}
