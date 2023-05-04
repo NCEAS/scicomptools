@@ -14,6 +14,12 @@
 #' 
 #' @export
 #' 
+#' @examples  
+#' \dontrun{
+#' # Supply a single Google Drive folder link to identify all its sub-folders 
+#' drive_toc(url = googledrive::as_id("https://drive.google.com/drive/u/0/folders/your-folder"))
+#' }
+#' 
 drive_toc <- function(url = NULL, ignore_names = NULL, quiet = FALSE){
   # Squelch visible bindings note
   name <- id <- listed <- parent_path <- path <- NULL

@@ -19,3 +19,11 @@ drive_toc(url = NULL, ignore_names = NULL, quiet = FALSE)
 \description{
 Identifies all sub-folders within a user-supplied Drive folder (typically the top-level URL). Also allows for exclusion of folders by name; useful if a "Backups" or "Archive" folder is complex and a table of contents is unwanted for that folder(s).
 }
+\examples{
+ 
+\dontrun{
+# Supply a single Google Drive folder link to identify all its sub-folders 
+drive_toc(url = googledrive::as_id("https://drive.google.com/drive/u/0/folders/your-folder"))
+}
+
+}
