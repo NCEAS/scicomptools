@@ -17,5 +17,6 @@ Retrieves all sheets of a Microsoft Excel workbook and identifies the formatting
 }
 \examples{
 # Identify the formatting of every cell in all sheets of an Excel file
-read_xl_format(file_name = system.file("extdata", "faux_data.xlsx", package = "scicomptools"))
+read_xl_format(file_name = system.file("extdata", "excel_book.xlsx", package = "scicomptools"))
+
 }

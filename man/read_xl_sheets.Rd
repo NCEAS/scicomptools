@@ -17,6 +17,6 @@ Retrieves all of the sheets in a given Microsoft Excel workbook and stores them 
 }
 \examples{
 # Read in each sheet as an element in a list
-read_xl_sheets(file_name = system.file("extdata", "faux_data.xlsx", package = "scicomptools"))
+read_xl_sheets(file_name = system.file("extdata", "excel_book.xlsx", package = "scicomptools"))
 
 }
