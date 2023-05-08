@@ -20,6 +20,7 @@
 #' 
 #' # Extract the relevant information
 #' stat_extract(mod_fit = mod)
+#' 
 stat_extract <- function(mod_fit = NULL, traj_angle = "deg"){
   # Global Checks ----
   # Squelch 'visible bindings' note

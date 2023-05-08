@@ -27,4 +27,5 @@ mod <- lm(y ~ x)
 
 # Extract the relevant information
 stat_extract(mod_fit = mod)
+
 }
