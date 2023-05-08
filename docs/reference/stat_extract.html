@@ -76,6 +76,23 @@
 <p>(data.frame) Dataframe of core summary statistics for the given model</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Create some example data</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.5</span>, <span class="fl">2.1</span>, <span class="fl">7.5</span>, <span class="fl">5.6</span>, <span class="fl">3.3</span>, <span class="fl">6.0</span>, <span class="fl">5.6</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.3</span>, <span class="fl">4.7</span>, <span class="fl">7.8</span>, <span class="fl">9.1</span>, <span class="fl">4.5</span>, <span class="fl">3.6</span>, <span class="fl">5.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Fit a linear model</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Extract the relevant information</span></span></span>
+<span class="r-in"><span><span class="fu">stat_extract</span><span class="op">(</span>mod_fit <span class="op">=</span> <span class="va">mod</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          Term  Estimate Std_Error   T_Value   P_Value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 (Intercept) 2.0661017 2.4263807 0.8515159 0.4333616</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           x 0.6737288 0.4751741 1.4178568 0.2154314</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

@@ -75,81 +75,94 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Identify the formatting of every cell in all sheets of an Excel file</span></span></span>
-<span class="r-in"><span><span class="fu">read_xl_format</span><span class="op">(</span>file_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"faux_data.xlsx"</span>, package <span class="op">=</span> <span class="st">"scicomptools"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      sheet address row col cell_contents               comment    formula  bold</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  my_data      A1   1   1         col_1                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  my_data      B1   1   2         col_2                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  my_data      C1   1   3         col_3                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  my_data      D1   1   4         col_4                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  my_data      E1   1   5         col_5 Nick Lyon:Hello world       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  my_data      A2   2   1             a                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  my_data      B2   2   2             A                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  my_data      C2   2   3             2                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  my_data      D2   2   4           234                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 my_data      E2   2   5           236                  &lt;NA&gt; SUM(C2:D2)  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 my_data      A3   3   1             b                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 my_data      B3   3   2             A                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 my_data      C3   3   3            43                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 my_data      D3   3   4           435                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 my_data      E3   3   5           478                  &lt;NA&gt; SUM(C3:D3)  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 my_data      A4   4   1             c                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 my_data      B4   4   2             A                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 my_data      C4   4   3             2                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 my_data      D4   4   4            32                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 my_data      E4   4   5            34                  &lt;NA&gt; SUM(C4:D4)  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 my_data      A5   5   1             d                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 my_data      B5   5   2             B                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 my_data      C5   5   3             2                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 my_data      D5   5   4            45                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 my_data      E5   5   5            47                  &lt;NA&gt; SUM(C5:D5)  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 my_data      A6   6   1             e                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 my_data      B6   6   2             B                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 my_data      C6   6   3             2                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 my_data      D6   6   4             4                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 my_data      E6   6   5             6                  &lt;NA&gt; SUM(C6:D6)  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  data_2      A1   1   1         col_2                  &lt;NA&gt;       &lt;NA&gt; FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  data_2      B1   1   2   temperature                  &lt;NA&gt;       &lt;NA&gt; FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  data_2      A2   2   1             A                  &lt;NA&gt;       &lt;NA&gt; FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  data_2      B2   2   2            10                  &lt;NA&gt;       &lt;NA&gt; FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  data_2      A3   3   1             B                  &lt;NA&gt;       &lt;NA&gt; FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  data_2      B3   3   2            20                  &lt;NA&gt;       &lt;NA&gt;  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    italic underline font_size font_color cell_color</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   FALSE      &lt;NA&gt;        12   FF000000   FFFFFFFF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  FALSE      &lt;NA&gt;        12   FF000000   FFFFFFFF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  FALSE    single        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  FALSE    single        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  FALSE      &lt;NA&gt;        12   FFFF0000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  FALSE    single        12   FF000000       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-in"><span><span class="fu">read_xl_format</span><span class="op">(</span>file_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"excel_book.xlsx"</span>, package <span class="op">=</span> <span class="st">"scicomptools"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           sheet address row col cell_contents                           comment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   first_table      A1   1   1         col_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   first_table      B1   1   2         col_2                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   first_table      A2   2   1           cat                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   first_table      B2   2   2             2                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   first_table      A3   3   1           dog                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   first_table      B3   3   2             1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   first_table      A4   4   1          bird                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   first_table      B4   4   2             3                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   first_table      A5   5   1          fish                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  first_table      B5   5   2             5                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 second_table      A1   1   1          name                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 second_table      B1   1   2         order                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 second_table      C1   1   3      quantity Microsoft Office User:comment\r\n</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 second_table      A2   2   1          Alex                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 second_table      B2   2   2        item_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 second_table      C2   2   3            65                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 second_table      A3   3   1          Jane                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 second_table      B3   3   2        item_2                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 second_table      C3   3   3            23                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 second_table      A4   4   1           Max                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 second_table      B4   4   2        item_3                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 second_table      C4   4   3            30                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23  third_table      A1   1   1          date                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24  third_table      B1   1   2          site                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25  third_table      C1   1   3          plot                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26  third_table      D1   1   4       species                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27  third_table      A2   2   1    2023-01-04                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  third_table      B2   2   2        site_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  third_table      C2   2   3             A                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30  third_table      D2   2   4     species_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31  third_table      A3   3   1    2023-02-10                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32  third_table      B3   3   2        site_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33  third_table      C3   3   3             B                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34  third_table      D3   3   4     species_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  third_table      A4   4   1    2023-03-11                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36  third_table      B4   4   2        site_2                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37  third_table      C4   4   3             A                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38  third_table      D4   4   4     species_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39  third_table      A5   5   1    2023-04-28                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40  third_table      B5   5   2        site_2                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41  third_table      C5   5   3             B                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42  third_table      D5   5   4     species_1                              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    formula  bold italic underline font_size font_color cell_color</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     &lt;NA&gt; FALSE   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF4472C4       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     &lt;NA&gt; FALSE   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF4472C4       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7     &lt;NA&gt; FALSE   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8     &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF4472C4       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9     &lt;NA&gt; FALSE   TRUE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF4472C4       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11    &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12    &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13    &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000   FFFFFFFF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000   FFFFFFFF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000   FFFFFFFF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23    &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24    &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25    &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26    &lt;NA&gt;  TRUE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30    &lt;NA&gt; FALSE  FALSE    single        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34    &lt;NA&gt; FALSE  FALSE    single        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38    &lt;NA&gt; FALSE  FALSE    single        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41    &lt;NA&gt; FALSE  FALSE      &lt;NA&gt;        12   FF000000       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42    &lt;NA&gt; FALSE  FALSE    single        12   FF000000       &lt;NA&gt;</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
