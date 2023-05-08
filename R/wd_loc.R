@@ -10,6 +10,11 @@
 #' 
 #' @export
 #' 
+#' @examples
+#' wd_loc(local = TRUE,
+#'        local_path = getwd(),
+#'        remote_path = file.path("path on server"))
+#'       
 wd_loc <- function(local = TRUE, local_path = getwd(), remote_path = NULL){
   
   # If local isn't logical, coerce to TRUE

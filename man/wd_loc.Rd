@@ -19,3 +19,9 @@ wd_loc(local = TRUE, local_path = getwd(), remote_path = NULL)
 \description{
 While working on the same script both in a remote server and locally on your home computer, defining file paths can be unwieldy and may even require duplicate scripts--one for each location--that require maintenance in parallel. This function allows you to define whether you are working locally or not and specify the path to use in either case.
 }
+\examples{
+wd_loc(local = TRUE,
+       local_path = getwd(),
+       remote_path = file.path("path on server"))
+      
+}
