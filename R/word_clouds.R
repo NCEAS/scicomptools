@@ -106,7 +106,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     # Drop the 'is number' column
     dplyr::select(-is_number) %>%
     # Make all words singular
-    dplyr::mutate(word = pluralize::singularize(word)) %>%
+    # dplyr::mutate(word = pluralize::singularize(word)) %>%
     ## And then change some back to plural where it makes sense to do so
     dplyr::mutate(word = dplyr::case_when(
       word == "datum" ~ "data",

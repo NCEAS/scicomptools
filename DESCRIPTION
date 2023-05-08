@@ -59,7 +59,6 @@ Imports:
    ggwordcloud,
    magrittr,
    methods,
-   pluralize,
    purrr,
    readxl,
    stringr,
