@@ -13,6 +13,22 @@
 #'
 #' @export
 #'
+#' @examples 
+#' # Create a dataframe containing some example text
+#' text <- data.frame(article_num = 1:6,
+#'                    article_title = c("Why pigeons are the best birds",
+#'                                      "10 ways to show your pet budgie love",
+#'                                      "Should you feed ducks at the park?",
+#'                                      "Locations and tips for birdwatching",
+#'                                      "How to tell which pet bird is right for you",
+#'                                      "Do birds make good pets?"))
+#'                                      
+#' # Prepare the dataframe for word cloud plotting              
+#' word_cloud_prep(data = text, text_column = "article_title")
+#' 
+#' # Plot the word cloud
+#' word_cloud_plot(data = text, text_column = "article_title")
+#' 
 word_cloud_prep <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
   # Squelch visible bindings note
@@ -129,6 +145,22 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
 #'
 #' @export
 #'
+#' @examples 
+#' # Create a dataframe containing some example text
+#' text <- data.frame(article_num = 1:6,
+#'                    article_title = c("Why pigeons are the best birds",
+#'                                      "10 ways to show your pet budgie love",
+#'                                      "Should you feed ducks at the park?",
+#'                                      "Locations and tips for birdwatching",
+#'                                      "How to tell which pet bird is right for you",
+#'                                      "Do birds make good pets?"))
+#'                                      
+#' # Prepare the dataframe for word cloud plotting              
+#' word_cloud_prep(data = text, text_column = "article_title")
+#' 
+#' # Plot the word cloud
+#' word_cloud_plot(data = text, text_column = "article_title")
+#' 
 word_cloud_plot <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
   # Squelch visible bindings note
