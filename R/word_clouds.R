@@ -33,7 +33,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
   # Squelch visible bindings note
   text_full <- word <- free_text <- keep <- bigrams <- NULL
-  response_id <- angle <- NULL
+  is_number <- response_id <- angle <- NULL
 
   # Error out if data is not supplied or column isn't supplied
   if(base::is.null(data) | base::is.null(text_column))
@@ -54,7 +54,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     dplyr::mutate(keep = dplyr::case_when(
       word %in% known_bigrams ~ 'yes', T ~ 'no')) %>%
     # **Rename the provided text column for our downstream use**
-    dplyr::rename(free_text = text_column) %>%
+    dplyr::rename(free_text = dplyr::all_of(text_column)) %>%
     # Identify whether a text entry has any bigrams
     dplyr::group_by(free_text) %>%
     dplyr::mutate(bigrams_in_phrase = dplyr::case_when(
@@ -73,7 +73,9 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     dplyr::rename(bigrams = word) %>%
     # Remove the bigrams from their original phrases
     dplyr::mutate(free_text = ifelse(test = (keep == "yes"),
-                                     yes = stringr::str_replace(string = tolower(free_text), pattern = bigrams, replacement = ""),
+                                     yes = stringr::str_replace(string = tolower(free_text),
+                                                                pattern = bigrams, 
+                                                                replacement = ""),
                                      no = free_text),
                   .before = dplyr::everything()) %>%
     # Remove grouping
@@ -95,10 +97,16 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     dplyr::select(word) %>%
     # Remove stop words (that data object provided by `tidytext`)
     dplyr::anti_join(tidytext::stop_words, by = 'word') %>%
+    # Identify numbers
+    dplyr::mutate(is_number = base::ifelse(
+      test = !base::is.na(base::suppressWarnings(base::as.numeric(word))),
+      yes = "yes", no = "no")) %>%
     # Remove numbers
-    dplyr::mutate(word = gsub("1|2|3|4|5|6|7|8|9|0", "", word)) %>%
+    dplyr::filter(is_number == "no") %>%
+    # Drop the 'is number' column
+    dplyr::select(-is_number) %>%
     # Make all words singular
-    dplyr::mutate(word = pluralize::singularize(x = word)) %>%
+    dplyr::mutate(word = pluralize::singularize(word)) %>%
     ## And then change some back to plural where it makes sense to do so
     dplyr::mutate(word = dplyr::case_when(
       word == "datum" ~ "data",
