@@ -14,3 +14,11 @@ token_check(api = "qualtrics", secret = TRUE)
 \description{
 To make some direct-from-API workflows functional (e.g., Qualtrics surveys, etc.). It is necessary to quickly test whether a given R session "knows" the API token. This function returns an error if the specified token type isn't found and prints a message if one is found
 }
+\examples{
+# Check whether a GitHub token is attached or not
+token_check(api = "github", secret = TRUE)
+
+# Check whether a Qualtrics token is attached or not
+token_check(api = "qualtrics", secret = TRUE)
+
+}

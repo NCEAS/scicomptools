@@ -6,7 +6,14 @@
 #' @param secret (logical) Whether to include the token character string in the success message. FALSE prints the token, TRUE keeps it secret but returns a success message
 #'
 #' @export
-#'
+#' 
+#' @examples
+#' # Check whether a GitHub token is attached or not
+#' token_check(api = "github", secret = TRUE)
+#' 
+#' # Check whether a Qualtrics token is attached or not
+#' token_check(api = "qualtrics", secret = TRUE)
+#' 
 token_check <- function(api = "qualtrics", secret = TRUE){
 
   # Error out for unsupported `api`
