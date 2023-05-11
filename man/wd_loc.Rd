@@ -20,7 +20,15 @@ wd_loc(local = TRUE, local_path = getwd(), remote_path = NULL)
 While working on the same script both in a remote server and locally on your home computer, defining file paths can be unwieldy and may even require duplicate scripts--one for each location--that require maintenance in parallel. This function allows you to define whether you are working locally or not and specify the path to use in either case.
 }
 \examples{
+# Set two working directory paths to toggle between
+
+# If you are working in your local computer, set `local` to "TRUE"
 wd_loc(local = TRUE,
+       local_path = getwd(),
+       remote_path = file.path("path on server"))
+       
+# If you are working in a remote server, set `local` to "FALSE"
+wd_loc(local = FALSE,
        local_path = getwd(),
        remote_path = file.path("path on server"))
       
