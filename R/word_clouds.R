@@ -106,7 +106,9 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
     # Drop the 'is number' column
     dplyr::select(-is_number) %>%
     # Make all words singular
-    # dplyr::mutate(word = pluralize::singularize(word)) %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(word = SemNetCleaner::singularize(word)) %>%
+    dplyr::ungroup() %>%
     ## And then change some back to plural where it makes sense to do so
     dplyr::mutate(word = dplyr::case_when(
       word == "datum" ~ "data",
@@ -172,7 +174,7 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
 word_cloud_plot <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
   # Squelch visible bindings note
-  word <- n <- color_groups <- NULL
+  word <- n <- color_groups <- angle <- NULL
 
   # Prepare text for word cloud creation
   cloud_df <- word_cloud_prep(data = data, text_column = text_column,
@@ -181,7 +183,8 @@ word_cloud_plot <- function(data = NULL, text_column = NULL,
     # Make plot
   cloud <- cloud_df %>%
     ggplot2::ggplot(ggplot2::aes(label = word, size = n,
-                                 color = color_groups)) +
+                                 color = color_groups,
+                                 angle = angle)) +
     ggwordcloud::geom_text_wordcloud(shape = 'circle',
                                      rm_outside = T,
                                  na.rm = T) +
