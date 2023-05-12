@@ -118,6 +118,6 @@ Some operations require passing a user's personal access token (a.k.a. "PAT") to
 
 The `token_check` function checks whether a token is attached and messages whether or not one is found. Currently this function supports checks for Qualtrics and GitHub tokens but this can be expanded if need be ([post a GitHub issue](https://github.com/NCEAS/scicomptools/issues) if you have another token in mind!). Additionally, if `secret = TRUE` (the default) the success message simply identifies whether a token is found. If `secret = FALSE` the success message prints the token string in the console.
 
-```{r token_check}
+```{r token_check, eval = F}
 scicomptools::token_check(api = "github", secret = TRUE)
 ```
