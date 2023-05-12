@@ -8,12 +8,14 @@
 #' @export
 #' 
 #' @examples
+#' \dontrun{
 #' # Check whether a GitHub token is attached or not
 #' token_check(api = "github", secret = TRUE)
-#' 
+#' }
+#' \dontrun{
 #' # Check whether a Qualtrics token is attached or not
 #' token_check(api = "qualtrics", secret = TRUE)
-#' 
+#' }
 token_check <- function(api = "qualtrics", secret = TRUE){
 
   # Error out for unsupported `api`
