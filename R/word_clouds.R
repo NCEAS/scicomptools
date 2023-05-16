@@ -25,10 +25,10 @@
 #'                                      
 #' # Prepare the dataframe for word cloud plotting              
 #' word_cloud_prep(data = text, text_column = "article_title")
-#' 
+#' \dontrun{
 #' # Plot the word cloud
 #' word_cloud_plot(data = text, text_column = "article_title")
-#' 
+#' }
 word_cloud_prep <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
   # Squelch visible bindings note
@@ -167,10 +167,10 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
 #'                                      
 #' # Prepare the dataframe for word cloud plotting              
 #' word_cloud_prep(data = text, text_column = "article_title")
-#' 
+#' \dontrun{
 #' # Plot the word cloud
 #' word_cloud_plot(data = text, text_column = "article_title")
-#' 
+#' }
 word_cloud_plot <- function(data = NULL, text_column = NULL,
                             word_count = 50, known_bigrams = c("working group")){
   # Squelch visible bindings note

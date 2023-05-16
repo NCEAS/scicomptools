@@ -38,8 +38,8 @@ text <- data.frame(article_num = 1:6,
                                      
 # Prepare the dataframe for word cloud plotting              
 word_cloud_prep(data = text, text_column = "article_title")
-
+\dontrun{
 # Plot the word cloud
 word_cloud_plot(data = text, text_column = "article_title")
-
+}
 }
