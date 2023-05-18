@@ -2,9 +2,10 @@
 ^\.Rproj\.user$
 ^\.github$
 ^README\.Rmd$
-deprecated
+deprecated/
 workbench\.R
 LICENSE.md
-docs
-pkgdown
+docs/
+^pkgdown$
 cran-comments.md
+^\.Rhistory$
