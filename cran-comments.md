@@ -16,7 +16,7 @@ There were no ERRORs or WARNINGs. There were 4 NOTEs.
     NCEAS (3:27)
   Maintainer: 'Angel Chen <anchen@nceas.ucsb.edu>'
 ```
-This is the first submission of this package to CRAN.
+This is the first submission of this package to CRAN. Also, "NCEAS" is not a typo.
 
 ```
 ❯ On windows-x86_64-devel (r-devel)
