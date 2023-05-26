@@ -24,7 +24,7 @@ This is the first submission of this package to CRAN. Also, "NCEAS" is not a typ
   Found the following files/directories:
     ''NULL''
 ```
-
+As noted in [R-hub issue #560](https://github.com/r-hub/rhub/issues/560), this note can be safely ignored. 
 
 ```
 ❯ On windows-x86_64-devel (r-devel)
