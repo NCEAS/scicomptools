@@ -21,7 +21,7 @@ While working on the same script both in a remote server and locally on your hom
 }
 \examples{
 # Set two working directory paths to toggle between
-\dontrun{
+
 # If you are working in your local computer, set `local` to "TRUE"
 wd_loc(local = TRUE,
        local_path = getwd(),
@@ -31,5 +31,5 @@ wd_loc(local = TRUE,
 wd_loc(local = FALSE,
        local_path = getwd(),
        remote_path = file.path("path on server"))
-}       
+      
 }

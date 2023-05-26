@@ -12,7 +12,7 @@
 #' 
 #' @examples
 #' # Set two working directory paths to toggle between
-#' \dontrun{
+#' 
 #' # If you are working in your local computer, set `local` to "TRUE"
 #' wd_loc(local = TRUE,
 #'        local_path = getwd(),
@@ -22,7 +22,7 @@
 #' wd_loc(local = FALSE,
 #'        local_path = getwd(),
 #'        remote_path = file.path("path on server"))
-#'}       
+#'       
 wd_loc <- function(local = TRUE, local_path = getwd(), remote_path = NULL){
   
   # If local isn't logical, coerce to TRUE
