@@ -15,12 +15,12 @@
 #' 
 #' # If you are working in your local computer, set `local` to "TRUE"
 #' wd_loc(local = TRUE,
-#'        local_path = getwd(),
+#'        local_path = file.path("local path"),
 #'        remote_path = file.path("path on server"))
 #'        
 #' # If you are working in a remote server, set `local` to "FALSE"
 #' wd_loc(local = FALSE,
-#'        local_path = getwd(),
+#'        local_path = file.path("local path"),
 #'        remote_path = file.path("path on server"))
 #'       
 wd_loc <- function(local = TRUE, local_path = getwd(), remote_path = NULL){
