@@ -1,6 +1,6 @@
 Package: scicomptools
 Type: Package
-Title: Tools Developed by the National Center for Ecological Analysis and Synthesis (NCEAS) Scientific Computing Support Team
+Title: Tools Developed by the NCEAS Scientific Computing Support Team
 Version: 1.0.0
 Authors@R: c(
   person(given = "Julien", family = "Brun", 
@@ -41,9 +41,12 @@ Authors@R: c(
          comment = "NSF 1929393, 09/01/2019 - 08/31/2024")
  )
 Maintainer: Angel Chen <anchen@nceas.ucsb.edu>
-Description: Set of tools to import, summarize, wrangle, and visualize data.
-  These functions were originally written based on the needs of the various synthesis working groups that were supported by the National Center for Ecological Analysis and Synthesis (NCEAS).
-  These tools are meant to be useful inside and outside of the context for which they were designed. 
+Description: Set of tools to import, summarize, wrangle, and visualize data. 
+    These functions were originally written based on the needs of the 
+    various synthesis working groups that were supported by the 
+    National Center for Ecological Analysis and Synthesis (NCEAS). 
+    These tools are meant to be useful inside and 
+    outside of the context for which they were designed. 
 License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
