@@ -11,13 +11,13 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>",
 
 <img src = "man/figures/scicomptools_hex.png" align = "right" width = "15%"/>
 
-# `scicomptools` - Tools Developed by NCEAS' Scientific Computing Support Team
+# `scicomptools` - Tools Developed by the NCEAS Scientific Computing Support Team
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of `scicomptools` is to house all of the standalone functions written by NCEAS Scientific Computing Team staff that lack a specific project. Currently contains various tools to import, summarize, and visualize data. Non-function scripts created by this team are part of the [`scicomptasks` repository](https://github.com/NCEAS/scicomptasks#readme).
+The goal of `scicomptools` is to house all of the standalone functions written by the National Center for Ecological Analysis and Synthesis (NCEAS) Scientific Computing Team staff that lack a specific project. Currently contains various tools to import, summarize, and visualize data. Non-function scripts created by this team are part of the [`scicomptasks` repository](https://github.com/NCEAS/scicomptasks#readme).
 
 ## Installation
 
