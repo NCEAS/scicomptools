@@ -11,6 +11,9 @@ token_check(api = "qualtrics", secret = TRUE)
 
 \item{secret}{(logical) Whether to include the token character string in the success message. FALSE prints the token, TRUE keeps it secret but returns a success message}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 To make some direct-from-API workflows functional (e.g., Qualtrics surveys, etc.). It is necessary to quickly test whether a given R session "knows" the API token. This function returns an error if the specified token type isn't found and prints a message if one is found
 }

@@ -5,6 +5,8 @@
 #' @param api (character) API the token is for (currently only supports "qualtrics" and "github")
 #' @param secret (logical) Whether to include the token character string in the success message. FALSE prints the token, TRUE keeps it secret but returns a success message
 #'
+#' @return No return value, called for side effects
+#'
 #' @export
 #' 
 #' @examples
