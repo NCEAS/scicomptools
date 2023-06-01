@@ -1,3 +1,12 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Added more content to the Description field in the DESCRIPTION file.
+
+* Defined the NCEAS acronym in the DESCRIPTION and README.
+
+* Added a @return tag to `token_check.R`.
+
 ## Test environments
 - R-hub windows-x86_64-devel (r-devel)
 - R-hub ubuntu-gcc-release (r-release)
