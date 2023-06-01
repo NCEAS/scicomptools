@@ -28,6 +28,12 @@ You can install the development version of `scicomptools` from [GitHub](https://
 devtools::install_github("NCEAS/scicomptools")
 ```
 
+Or download from CRAN with:
+
+``` r
+install.packages("scicomptools")
+```
+
 ## Current Functions
 
 ### Modeling / Analysis
