@@ -1,10 +1,16 @@
 ## Resubmission
-This is a resubmission. In this version I have:
+This is a resubmission.
+
+### Attempt 2
+In this version I have:
+
+* Added an entry in the Authors@R field of the DESCRIPTION file that references the University of California, Santa Barbara as the copyright holder.
+
+### Attempt 1
+In this version I have:
 
 * Added more content to the Description field in the DESCRIPTION file.
-
 * Defined the NCEAS acronym in the DESCRIPTION and README.
-
 * Added a @return tag to `token_check.R`.
 
 ## Test environments
