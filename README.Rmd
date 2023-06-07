@@ -15,6 +15,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>",
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/scicomptools)](htttps://cran.r-project.org/package=scicomptools)
 <!-- badges: end -->
 
 The goal of `scicomptools` is to house all of the standalone functions written by the National Center for Ecological Analysis and Synthesis (NCEAS) Scientific Computing Team staff that lack a specific project. Currently contains various tools to import, summarize, and visualize data. Non-function scripts created by this team are part of the [`scicomptasks` repository](https://github.com/NCEAS/scicomptasks#readme).
