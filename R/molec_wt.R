@@ -19,6 +19,9 @@
 #' 
 molec_wt <- function(element = NULL){
   
+  # Squelch 'visible bindings' NOTE
+  atomic_number <- element_name <- symbol <- molecular_weight <- NULL
+  
   # Error out for no argument specification
   if(is.null(element) == TRUE)
     stop("Element must be provided")
