@@ -1,6 +1,22 @@
-
-library(tidyverse)
-
+#' @title Identify Molecular Weight for a Given Element
+#' 
+#' @description Identifies molecular weight for the specified element based on the element's name, its symbol, or its atomic number. Returns only the molecular weight as a numeric value.
+#' 
+#' @param element (character/numeric) element name, symbol, or atomic number for which to retrieve molecular weight
+#' 
+#' @importFrom magrittr %>%
+#' 
+#' @return (numeric) molecular weight value for the relevant element
+#' 
+#' @export
+#' 
+#' @examples
+#' # Identify molecular weight for carbon by name
+#' molec_wt(element = "Carbon")
+#' 
+#' # Identify molecular weight for hydrogen by atomic number
+#' molec_wt(element = 1)
+#' 
 molec_wt <- function(element = NULL){
   
   # Error out for no argument specification
@@ -27,8 +43,5 @@ molec_wt <- function(element = NULL){
     dplyr::pull(molecular_weight)
   
   # Return that
-  return(weight_actual) }
-
-
-molec_wt(element = 2)
-molec_wt(element = "carbon")
+  return(weight_actual)
+}
