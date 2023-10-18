@@ -54,6 +54,9 @@ install.packages("scicomptools")
 
 ### Data Description / Wrangling
 
+- **`molec_wt`**: Identifies molecular weight for the specified element
+  (based on name, symbol, or atomic number)
+
 - **`read_xl_sheets`**: Reads in all the sheets in a supplied Microsoft
   Excel workbook and returns a list of those contents
 

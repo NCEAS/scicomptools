@@ -2,6 +2,8 @@
 
 Development version of `scicomptools`. Changes from preceding version will be listed here as they are made.
 
+- New function: `molec_wt`. Identifies molecular weight for specified element based on element name, symbol, or atomic number
+
 # scicomptools 1.0.0
 
 This is the first fully functioning version of the package. There are currently no ERRORs, WARNINGs, or NOTEs returned by `devtools::check()`
