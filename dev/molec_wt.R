@@ -1,11 +1,6 @@
 
 library(tidyverse)
 
-# Define user entry
-user_entry <- "helium"
-user_enty <- 8
-
-# 
 molec_wt <- function(element = NULL){
   
   # Error out for no argument specification
@@ -13,7 +8,7 @@ molec_wt <- function(element = NULL){
     stop("Element must be provided")
   
   # Coerce user entry to lowercase (if text)
-  if(is.character(element)){
+  if(is.character(element) == TRUE){
     element <- tolower(x = element)
   }
   
@@ -36,4 +31,4 @@ molec_wt <- function(element = NULL){
 
 
 molec_wt(element = 2)
-molec_wt(element = "helium")
+molec_wt(element = "carbon")
