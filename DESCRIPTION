@@ -79,4 +79,6 @@ Suggests:
     knitr,
     nlme,
     rmarkdown,
-    RRPP
+    RRPP,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
