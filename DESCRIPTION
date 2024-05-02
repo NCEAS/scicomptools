@@ -2,6 +2,7 @@ Package: scicomptools
 Type: Package
 Title: Tools Developed by the NCEAS Scientific Computing Support Team
 Version: 1.0.0.900
+Date: 2024-05-02
 Authors@R: c(
   person(given = "Julien", family = "Brun", 
          email = "julien.brun@alumni.duke.edu", 
