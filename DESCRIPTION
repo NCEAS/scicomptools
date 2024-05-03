@@ -56,7 +56,7 @@ LazyData: true
 Language: en-US
 URL: https://github.com/NCEAS/scicomptools
 BugReports: https://github.com/NCEAS/scicomptools/issues
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 Imports:
    data.tree,
