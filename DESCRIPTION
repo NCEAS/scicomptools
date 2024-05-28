@@ -76,7 +76,10 @@ Imports:
    tidytext,
    tidyxl
 Suggests:
+    ecodist,
     knitr,
+    lme4,
+    lmerTest,
     nlme,
     rmarkdown,
     RRPP,
