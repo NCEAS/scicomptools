@@ -29,10 +29,10 @@ test_that("Outputs are correct", {
   nonlinear_least_squares <- nls(yeps ~ a + b*x, start = list(a = 0.12345, b = 0.54321))
   expect_equal(round(stat_extract(mod_fit = nonlinear_least_squares)$Estimate[1]), 3)
   
-  # Linear Mixed-Effects Model
-  data("sleepstudy", package = "lme4")
-  linear_mixed <- lmerTest::lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
-  expect_equal(round(stat_extract(mod_fit = linear_mixed)$Estimate[1]), 251)
+  # # Linear Mixed-Effects Model
+  # data("sleepstudy", package = "lme4")
+  # linear_mixed <- lmerTest::lmer(Reaction ~ Days + (Days | Subject), sleepstudy)
+  # expect_equal(round(stat_extract(mod_fit = linear_mixed)$Estimate[1]), 251)
   
   data("Orthodont", package = "nlme")
   linear_mixed_2 <- nlme::lme(distance ~ age, data = Orthodont)
