@@ -36,6 +36,14 @@ word_cloud_prep <- function(data = NULL, text_column = NULL,
   # Error out if data is not supplied or column isn't supplied
   if(base::is.null(data) | base::is.null(text_column))
     stop("`data` and `text_column` arguments must be supplied.")
+  
+  # Error out if data is supplied but isn't a dataframe/tibble
+  if(!base::is.null(data) & !class(data) %in% c("data.frame"))
+    stop("`data` must be a dataframe or tibble")
+  
+  # Error out if text column is supplied but isn't in the column names of data
+  if(!base::is.null(text_column) & !text_column %in% names(data))
+    stop("`text_column` must be in the column names of data")
 
   # Perform actual text mining
   cloud_df <- data %>%
