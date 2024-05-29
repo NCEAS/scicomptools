@@ -26,20 +26,3 @@ dataframe of one column (named 'word') that can be used for word cloud creation.
 \description{
 Mines a user-defined column of text and creates a word cloud from the identified words and bigrams.
 }
-\examples{
-# Create a dataframe containing some example text
-text <- data.frame(article_num = 1:6,
-                   article_title = c("Why pigeons are the best birds",
-                                     "10 ways to show your pet budgie love",
-                                     "Should you feed ducks at the park?",
-                                     "Locations and tips for birdwatching",
-                                     "How to tell which pet bird is right for you",
-                                     "Do birds make good pets?"))
-                                     
-# Prepare the dataframe for word cloud plotting              
-word_cloud_prep(data = text, text_column = "article_title")
-
-# Plot the word cloud
-word_cloud_plot(data = text, text_column = "article_title")
-
-}
