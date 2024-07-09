@@ -1,0 +1,9 @@
+pandoc: 3.1.11
+pkgdown: 2.1.0
+pkgdown_sha: ~
+articles:
+  scicomptools: scicomptools.html
+last_built: 2024-07-09T18:51Z
+urls:
+  reference: https://nceas.github.io/scicomptools/reference
+  article: https://nceas.github.io/scicomptools/articles
