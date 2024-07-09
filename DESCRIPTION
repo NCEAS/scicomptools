@@ -54,7 +54,7 @@ License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Language: en-US
-URL: https://github.com/NCEAS/scicomptools
+URL: https://github.com/NCEAS/scicomptools, https://nceas.github.io/scicomptools/
 BugReports: https://github.com/NCEAS/scicomptools/issues
 RoxygenNote: 7.3.1
 VignetteBuilder: knitr
