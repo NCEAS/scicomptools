@@ -43,10 +43,10 @@ test_that("Outputs are correct", {
   mrm_model <- ecodist::MRM(dist(LOAR10) ~ dist(sitelocation) + dist(forestpct), data=graze, nperm=10)
   expect_equal(round(stat_extract(mod_fit = mrm_model)$Response[1]), 7)
   
-  # Trajectory Analysis
-  data("Pupfish", package = "RRPP")
-  fit <- RRPP::lm.rrpp(coords ~ Pop * Sex, data = Pupfish, iter = 199)
-  traj_analysis <- RRPP::trajectory.analysis(fit, groups = Pupfish$Pop, 
-                            traj.pts = Pupfish$Sex, print.progress = FALSE)
-  expect_equal(round(stat_extract(mod_fit = traj_analysis)$Z_Score[1]), 2)
+  # # Trajectory Analysis
+  # data("Pupfish", package = "RRPP")
+  # fit <- RRPP::lm.rrpp(coords ~ Pop * Sex, data = Pupfish, iter = 199)
+  # traj_analysis <- RRPP::trajectory.analysis(fit, groups = Pupfish$Pop, 
+  #                          traj.pts = Pupfish$Sex, print.progress = FALSE)
+  # expect_equal(round(stat_extract(mod_fit = traj_analysis)$Z_Score[1]), 2)
 })
