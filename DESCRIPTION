@@ -59,6 +59,7 @@ BugReports: https://github.com/NCEAS/scicomptools/issues
 RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 Imports:
+   chromote,
    data.tree,
    dplyr,
    gitcreds,
