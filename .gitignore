@@ -45,3 +45,4 @@ vignettes/*.pdf
 workbench.R
 inst/doc
 docs
+exported_issues
