@@ -3,8 +3,7 @@
 #' @description Exports specified GitHub issues as PDF files when given the URL of a GitHub repository. This function will export the first 10 issues as a default. 
 #' 
 #' @param repo_url (character) URL of the GitHub repository as a character string.
-#' @param start (numeric) First GitHub issue to be exported. Default is issue number 1.
-#' @param end (numeric) Last GitHub issue to be exported. Default is issue number 10.
+#' @param issue_nums (numeric) Numeric vector of the issue numbers to be exported. Default is issue number 1 through 10. 
 #' @param export_folder (character) Name of the folder that will be created to contain the output PDF files. Default is "exported_issues". 
 #' @param cookies (character) Optional file path to the cookies to load into the Chrome session.
 #'
@@ -16,8 +15,7 @@
 #' \dontrun{
 #' # Export GitHub issues #7080 through #7089 for the public `dplyr` repository 
 #' issue_extract(repo_url = "https://github.com/tidyverse/dplyr",
-#'               start = 7080,
-#'               end = 7089,
+#'               issue_nums = 7080:7089,
 #'               export_folder = "dplyr_issues")
 #' }
 #' \dontrun{
@@ -44,21 +42,45 @@
 #' # After saving cookies, you should restart R
 #' # Then read in the cookies and export the necessary issues 
 #' issue_extract(repo_url = "https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp",
-#'               start = 295,
-#'               end = 300,
+#'               issue_nums = 295:300,
 #'               export_folder = "scicomp_issues",
 #'               cookies = "cookies.rds")
 #'}
 
 issue_extract <- function(repo_url = NULL,
-                          start = 1,
-                          end = 10,
-                          export_folder = "exported_issues",
-                          cookies = NULL) {
+                          issue_nums = 1:10,
+                          export_folder = NULL,
+                          cookies = NULL,
+                          quiet = FALSE) {
+  # Error out if no URL was provided
+  if (base::is.null(repo_url)) {
+    stop("URL not provided")
+  }
   
-  # Error out if the ending issue number is less than the starting issue number
-  if (end <= start){
-    stop("Ending issue number cannot be less than the starting issue number")
+  # Error out if the URL is not a GitHub URL
+  if (!stringr::str_detect(repo_url, "[Gg][Ii][Tt][Hh][Uu][Bb]")) {
+    stop("URL is not a valid GitHub repo URL")
+  }
+  
+  # Error out if the vector of GitHub issue numbers is not a numeric vector
+  if (!base::is.vector(issue_nums) | !base::is.numeric(issue_nums)) {
+    stop("Vector of issue numbers is not a numeric vector")
+  }
+  
+  # Error out if the vector of GitHub issue numbers contains decimal numbers
+  if (base::any(stringr::str_detect(issue_nums, "\\."))) {
+    stop("Vector of issue numbers cannot contain decimal numbers")
+  }
+  
+  # If no export folder name is specified, default to "exported_issues"
+  if (base::is.null(export_folder) | length(export_folder) == 0) {
+    message("No export folder name specified. Will default to 'exported_issues'.")
+    export_folder <- "exported_issues"
+  }
+  
+  if (!is.logical(quiet)){
+    message("`quiet` is not a logical, coercing to FALSE")
+    quiet <- FALSE
   }
   
   # Create sub-folder for exported issues
@@ -69,14 +91,30 @@ issue_extract <- function(repo_url = NULL,
   # Open interactive window
   b$view()
   
+  # If a file is provided for cookies...
   if (!base::is.null(cookies)) {
-    # Read in and set cookies
-    given_cookies <- base::readRDS(cookies)
-    b$Network$setCookies(cookies = given_cookies$cookies)
+    # Error out if cookies are not saved as a .rds file
+    if (!stringr::str_detect(cookies, "\\.[Rr][Dd][Ss]")) {
+      # Close the browser tab/window
+      b$close()
+      stop("Cookies need to be saved in the .rds extenstion")
+      # Otherwise read in cookies if the file has the correct extension
+    } else {
+      given_cookies <- base::readRDS(cookies)
+    }
+    
+    # Error out if the file does not contain the actual components making up cookies
+    if (!base::isTRUE(stringr::str_detect(names(given_cookies), "cookies"))) {
+      # Close the browser tab/window
+      b$close()
+      stop("Cookies need to contain a list element called 'cookies'")
+    } else {
+      # Otherwise set the cookies if the file has the correct components
+      b$Network$setCookies(cookies = given_cookies$cookies)
+    }
   }
   
-  for (i in start:end) {
-    
+  for (i in issue_nums) {
     # If there's an extra slash at the end of the url, remove it just in case
     repo_url <- stringr::str_replace(repo_url, "\\/$", "")
     
@@ -128,17 +166,26 @@ issue_extract <- function(repo_url = NULL,
       repo_name <- stringr::str_extract(repo_url, "([^\\/]+$)")
       
       # Attach the issue number to the pdf name
-      pdf_name <- paste0(repo_name, "_issue_", num, "_", title_4, ".pdf")
+      pdf_name <-
+        paste0(repo_name, "_issue_", num, "_", title_4, ".pdf")
       
-      message(paste("Exporting issue", i))
-      
-      # Export the GitHub issue webpage as a pdf
-      b$screenshot_pdf(
-        filename = file.path(export_folder, pdf_name),
-        display_header_footer = TRUE,
-        print_background = TRUE
-      )
-      
+      if (quiet == TRUE) {
+        # Export the GitHub issue webpage as a pdf
+        b$screenshot_pdf(
+          filename = file.path(export_folder, pdf_name),
+          display_header_footer = TRUE,
+          print_background = TRUE
+        )
+      } else {
+        message(paste("Exporting issue", i))
+        
+        # Export the GitHub issue webpage as a pdf
+        b$screenshot_pdf(
+          filename = file.path(export_folder, pdf_name),
+          display_header_footer = TRUE,
+          print_background = TRUE
+        )
+      }
     }
     
   }
