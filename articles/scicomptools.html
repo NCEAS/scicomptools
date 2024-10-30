@@ -256,6 +256,58 @@ success message prints the token string in the console.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">scicomptools</span><span class="fu">::</span><span class="fu"><a href="../reference/token_check.html">token_check</a></span><span class="op">(</span>api <span class="op">=</span> <span class="st">"github"</span>, secret <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
+<div class="section level3">
+<h3 id="exporting-github-issues-as-pdf-files">Exporting GitHub Issues as PDF Files<a class="anchor" aria-label="anchor" href="#exporting-github-issues-as-pdf-files"></a>
+</h3>
+<p>Sometimes it’s helpful to save GitHub issues as a reference for the
+future, but manually exporting each issue as a PDF file can be
+time-consuming. This is why <code>issue_extract</code> was created to
+streamline this process. When given the URL of a GitHub repository and a
+numeric vector of issue numbers, this function will start a remote
+Google Chrome browser session via <a href="https://github.com/rstudio/chromote" class="external-link">Chromote</a> and
+automatically navigate to the specified GitHub issues to export them as
+PDF files.</p>
+<p><code>issue_extract</code> works for both public and non-public
+GitHub issues. Since non-public GitHub repositories require
+authentication, first you will need to save your credentials and then
+pass it into <code>issue_extract</code>. Below is an example of using
+this function to export GitHub issues from a private GitHub Enterprise
+repository.</p>
+<p>The first step is to open a new Chrome session.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Start new Chrome session</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="va">ChromoteSession</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Open interactive window</span></span>
+<span><span class="va">b</span><span class="op">$</span><span class="fu">view</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Then navigate to any page on the GitHub Enterprise/private repository
+and enter your credentials or login information on the browser session.
+Once you’ve logged in, save the cookies associated with this browser
+session as an R object using <code>b$Network$getCookies()</code>. Save
+this R object for later use and close the browser once you’re done.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Navigate to a random Github Enterprise issue</span></span>
+<span><span class="co"># Make sure to log in to GitHub Enterprise</span></span>
+<span><span class="va">b</span><span class="op">$</span><span class="va">Page</span><span class="op">$</span><span class="fu">navigate</span><span class="op">(</span><span class="st">"https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp/issues/278"</span><span class="op">)</span></span>
+<span> </span>
+<span><span class="co"># Save credentials as cookies</span></span>
+<span><span class="va">cookies</span> <span class="op">&lt;-</span> <span class="va">b</span><span class="op">$</span><span class="va">Network</span><span class="op">$</span><span class="fu">getCookies</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">cookies</span>, <span class="st">"cookies.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Close the browser tab/window</span></span>
+<span><span class="va">b</span><span class="op">$</span><span class="fu">close</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Finally, restart your R session. Now you should be able to pass the
+file containing your cookies into <code>issue_extract</code> and access
+GitHub Enterprise/private repositories!</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># After saving cookies, you should restart R</span></span>
+<span><span class="co"># Then read in the cookies and export the necessary issues </span></span>
+<span></span>
+<span><span class="co"># Export GitHub issues #295 through #300 for a GitHub Enterprise repository</span></span>
+<span><span class="fu"><a href="../reference/issue_extract.html">issue_extract</a></span><span class="op">(</span>repo_url <span class="op">=</span> <span class="st">"https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp"</span>,</span>
+<span>              issue_nums <span class="op">=</span> <span class="fl">295</span><span class="op">:</span><span class="fl">300</span>,</span>
+<span>              export_folder <span class="op">=</span> <span class="st">"scicomp_issues"</span>,</span>
+<span>              cookies <span class="op">=</span> <span class="st">"cookies.rds"</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
