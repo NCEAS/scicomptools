@@ -8,7 +8,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/NCEAS/scicomptools/actions/workflows/R-CMD-check.yaml)
-[![](https://cranlogs.r-pkg.org/badges/grand-total/scicomptools)](htttps://cran.r-project.org/package=scicomptools)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/scicomptools)](https://cran.r-project.org/package=scicomptools)
 <!-- badges: end -->
 
 The goal of `scicomptools` is to house all of the standalone functions
