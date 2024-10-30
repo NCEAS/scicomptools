@@ -15,7 +15,7 @@ issue_extract(
 \arguments{
 \item{repo_url}{(character) URL of the GitHub repository as a character string.}
 
-\item{issue_nums}{(numeric) Numeric vector of the issue numbers to be exported. Default is issue number 1 through 10.}
+\item{issue_nums}{(numeric) Numeric vector of the issue numbers to be exported. Default is issue #1 through #10.}
 
 \item{export_folder}{(character) Name of the folder that will be created to contain the output PDF files. Default is "exported_issues".}
 
@@ -27,40 +27,14 @@ issue_extract(
 No return value, called for side effects
 }
 \description{
-Exports specified GitHub issues as PDF files when given the URL of a GitHub repository. This function will export the first 10 issues as a default.
+Exports specified GitHub issues as PDF files when given the URL of a GitHub repository and a numeric vector of GitHub issue numbers. This function will export the first 10 issues as a default.
 }
 \examples{
 \dontrun{
-# Export GitHub issues #7080 through #7089 for the public `dplyr` repository 
+# Export GitHub issue #7000 and #7080 through #7089 for the public `dplyr` repository 
 issue_extract(repo_url = "https://github.com/tidyverse/dplyr",
-              issue_nums = 7080:7089,
+              issue_nums = c(7000, 7080:7089),
               export_folder = "dplyr_issues")
 }
-\dontrun{
-# Export GitHub issues #295 through #300 for a GitHub Enterprise repository
-# First save your credentials as cookies
 
-# Start new Chrome session
-b <- ChromoteSession$new()
-# Open interactive window
-b$view()
-
-# Navigate to a random Github Enterprise issue
-# Make sure to log in to GitHub Enterprise
-b$Page$navigate("https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp/issues/278")
-
-# Save credentials as cookies
-cookies <- b$Network$getCookies()
-saveRDS(cookies, "cookies.rds")
-
-# Close the browser tab/window
-b$close()
-
-# After saving cookies, you should restart R
-# Then read in the cookies and export the necessary issues 
-issue_extract(repo_url = "https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp",
-              issue_nums = 295:300,
-              export_folder = "scicomp_issues",
-              cookies = "cookies.rds")
-}
 }
