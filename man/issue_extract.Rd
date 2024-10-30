@@ -6,22 +6,22 @@
 \usage{
 issue_extract(
   repo_url = NULL,
-  start = 1,
-  end = 10,
-  export_folder = "exported_issues",
-  cookies = NULL
+  issue_nums = 1:10,
+  export_folder = NULL,
+  cookies = NULL,
+  quiet = FALSE
 )
 }
 \arguments{
 \item{repo_url}{(character) URL of the GitHub repository as a character string.}
 
-\item{start}{(numeric) First GitHub issue to be exported. Default is issue number 1.}
-
-\item{end}{(numeric) Last GitHub issue to be exported. Default is issue number 10.}
+\item{issue_nums}{(numeric) Numeric vector of the issue numbers to be exported. Default is issue number 1 through 10.}
 
 \item{export_folder}{(character) Name of the folder that will be created to contain the output PDF files. Default is "exported_issues".}
 
-\item{cookies}{(character) Optional file path to the cookies to load into the Chrome session.}
+\item{cookies}{(character) Optional file path to the cookies to load into the Chrome session. This is only required when accessing GitHub repositories that require a login. See this link for more details: https://github.com/rstudio/chromote/blob/main/README.md#websites-that-require-authentication.}
+
+\item{quiet}{(logical) Whether to silence informative messages while issues are being exported. Default is FALSE.}
 }
 \value{
 No return value, called for side effects
@@ -33,14 +33,12 @@ Exports specified GitHub issues as PDF files when given the URL of a GitHub repo
 \dontrun{
 # Export GitHub issues #7080 through #7089 for the public `dplyr` repository 
 issue_extract(repo_url = "https://github.com/tidyverse/dplyr",
-              start = 7080,
-              end = 7089,
+              issue_nums = 7080:7089,
               export_folder = "dplyr_issues")
 }
 \dontrun{
 # Export GitHub issues #295 through #300 for a GitHub Enterprise repository
 # First save your credentials as cookies
-# See https://github.com/rstudio/chromote/blob/main/README.md#websites-that-require-authentication for more info
 
 # Start new Chrome session
 b <- ChromoteSession$new()
@@ -61,8 +59,7 @@ b$close()
 # After saving cookies, you should restart R
 # Then read in the cookies and export the necessary issues 
 issue_extract(repo_url = "https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp",
-              start = 295,
-              end = 300,
+              issue_nums = 295:300,
               export_folder = "scicomp_issues",
               cookies = "cookies.rds")
 }

@@ -5,7 +5,8 @@
 #' @param repo_url (character) URL of the GitHub repository as a character string.
 #' @param issue_nums (numeric) Numeric vector of the issue numbers to be exported. Default is issue number 1 through 10. 
 #' @param export_folder (character) Name of the folder that will be created to contain the output PDF files. Default is "exported_issues". 
-#' @param cookies (character) Optional file path to the cookies to load into the Chrome session.
+#' @param cookies (character) Optional file path to the cookies to load into the Chrome session. This is only required when accessing GitHub repositories that require a login. See this link for more details: https://github.com/rstudio/chromote/blob/main/README.md#websites-that-require-authentication.
+#' @param quiet (logical) Whether to silence informative messages while issues are being exported. Default is FALSE.  
 #'
 #' @return No return value, called for side effects
 #' 
@@ -20,8 +21,7 @@
 #' }
 #' \dontrun{
 #' # Export GitHub issues #295 through #300 for a GitHub Enterprise repository
-#' # First save your credentials as cookies (see link below for more details)
-#' # https://github.com/rstudio/chromote/blob/main/README.md#websites-that-require-authentication
+#' # First save your credentials as cookies
 #' 
 #' # Start new Chrome session
 #' b <- ChromoteSession$new()
