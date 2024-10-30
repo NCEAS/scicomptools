@@ -1,9 +1,9 @@
 #' @title Export GitHub issues as PDF Files
 #'
-#' @description Exports specified GitHub issues as PDF files when given the URL of a GitHub repository. This function will export the first 10 issues as a default. 
+#' @description Exports specified GitHub issues as PDF files when given the URL of a GitHub repository and a numeric vector of GitHub issue numbers. This function will export the first 10 issues as a default. 
 #' 
 #' @param repo_url (character) URL of the GitHub repository as a character string.
-#' @param issue_nums (numeric) Numeric vector of the issue numbers to be exported. Default is issue number 1 through 10. 
+#' @param issue_nums (numeric) Numeric vector of the issue numbers to be exported. Default is issue #1 through #10. 
 #' @param export_folder (character) Name of the folder that will be created to contain the output PDF files. Default is "exported_issues". 
 #' @param cookies (character) Optional file path to the cookies to load into the Chrome session. This is only required when accessing GitHub repositories that require a login. See this link for more details: https://github.com/rstudio/chromote/blob/main/README.md#websites-that-require-authentication.
 #' @param quiet (logical) Whether to silence informative messages while issues are being exported. Default is FALSE.  
