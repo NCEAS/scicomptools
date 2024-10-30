@@ -43,7 +43,6 @@ Authors@R: c(
   person(family = "University of California, Santa Barbara",
          role = "cph")
  )
-Maintainer: Angel Chen <angel777chen@gmail.com>
 Description: Set of tools to import, summarize, wrangle, and visualize data. 
     These functions were originally written based on the needs of the 
     various synthesis working groups that were supported by the 
