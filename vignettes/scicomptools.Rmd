@@ -121,3 +121,46 @@ The `token_check` function checks whether a token is attached and messages wheth
 ```{r token_check, eval = F}
 scicomptools::token_check(api = "github", secret = TRUE)
 ```
+
+### Exporting GitHub Issues as PDF Files
+
+Sometimes it's helpful to save GitHub issues as a reference for the future, but manually exporting each issue as a PDF file can be time-consuming. This is why `issue_extract` was created to streamline this process. When given the URL of a GitHub repository and a numeric vector of issue numbers, this function will start a remote Google Chrome browser session via [Chromote](https://github.com/rstudio/chromote) and automatically navigate to the specified GitHub issues to export them as PDF files. 
+
+`issue_extract` works for both public and non-public GitHub issues. Since non-public GitHub repositories require authentication, first you will need to save your credentials and then pass it into `issue_extract`. Below is an example of using this function to export GitHub issues from a private GitHub Enterprise repository.
+
+The first step is to open a new Chrome session.
+
+```{r issue_extract_1, eval = F}
+# Start new Chrome session
+b <- ChromoteSession$new()
+# Open interactive window
+b$view()
+```
+
+Then navigate to any page on the GitHub Enterprise/private repository and enter your credentials or login information on the browser session. Once you've logged in, save the cookies associated with this browser session as an R object using `b$Network$getCookies()`. Save this R object for later use and close the browser once you're done. 
+
+```{r issue_extract_2, eval = F}
+# Navigate to a random Github Enterprise issue
+# Make sure to log in to GitHub Enterprise
+b$Page$navigate("https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp/issues/278")
+ 
+# Save credentials as cookies
+cookies <- b$Network$getCookies()
+saveRDS(cookies, "cookies.rds")
+
+# Close the browser tab/window
+b$close()
+```
+ 
+Finally, restart your R session. Now you should be able to pass the file containing your cookies into `issue_extract` and access GitHub Enterprise/private repositories!
+
+```{r issue_extract_3, eval = F}
+# After saving cookies, you should restart R
+# Then read in the cookies and export the necessary issues 
+
+# Export GitHub issues #295 through #300 for a GitHub Enterprise repository
+issue_extract(repo_url = "https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp",
+              issue_nums = 295:300,
+              export_folder = "scicomp_issues",
+              cookies = "cookies.rds")
+```

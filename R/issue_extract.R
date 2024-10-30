@@ -14,38 +14,12 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Export GitHub issues #7080 through #7089 for the public `dplyr` repository 
+#' # Export GitHub issue #7000 and #7080 through #7089 for the public `dplyr` repository 
 #' issue_extract(repo_url = "https://github.com/tidyverse/dplyr",
-#'               issue_nums = 7080:7089,
+#'               issue_nums = c(7000, 7080:7089),
 #'               export_folder = "dplyr_issues")
 #' }
-#' \dontrun{
-#' # Export GitHub issues #295 through #300 for a GitHub Enterprise repository
-#' # First save your credentials as cookies
 #' 
-#' # Start new Chrome session
-#' b <- ChromoteSession$new()
-#' # Open interactive window
-#' b$view()
-#'
-#' # Navigate to a random Github Enterprise issue
-#' # Make sure to log in to GitHub Enterprise
-#' b$Page$navigate("https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp/issues/278")
-#' 
-#' # Save credentials as cookies
-#' cookies <- b$Network$getCookies()
-#' saveRDS(cookies, "cookies.rds")
-#'
-#' # Close the browser tab/window
-#' b$close()
-#' 
-#' # After saving cookies, you should restart R
-#' # Then read in the cookies and export the necessary issues 
-#' issue_extract(repo_url = "https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp",
-#'               issue_nums = 295:300,
-#'               export_folder = "scicomp_issues",
-#'               cookies = "cookies.rds")
-#'}
 
 issue_extract <- function(repo_url = NULL,
                           issue_nums = 1:10,
@@ -78,8 +52,9 @@ issue_extract <- function(repo_url = NULL,
     export_folder <- "exported_issues"
   }
   
+  # Warn user if the `quiet` argument is not logical and coerce to FALSE
   if (!is.logical(quiet)){
-    message("`quiet` is not a logical, coercing to FALSE")
+    warning("`quiet` is not a logical, coercing to FALSE")
     quiet <- FALSE
   }
   
