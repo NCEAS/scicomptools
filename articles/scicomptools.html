@@ -268,9 +268,9 @@ Google Chrome browser session via <a href="https://github.com/rstudio/chromote" 
 automatically navigate to the specified GitHub issues to export them as
 PDF files.</p>
 <p><code>issue_extract</code> works for both public and non-public
-GitHub issues. Since non-public GitHub repositories require
+GitHub repositories. Since non-public GitHub repositories require
 authentication, first you will need to save your credentials and then
-pass it into <code>issue_extract</code>. Below is an example of using
+pass them into <code>issue_extract</code>. Below is an example of using
 this function to export GitHub issues from a private GitHub Enterprise
 repository.</p>
 <p>The first step is to open a new Chrome session.</p>
@@ -282,15 +282,16 @@ repository.</p>
 <p>Then navigate to any page on the GitHub Enterprise/private repository
 and enter your credentials or login information on the browser session.
 Once you’ve logged in, save the cookies associated with this browser
-session as an R object using <code>b$Network$getCookies()</code>. Save
+session as an R object using <code>b$Network$getCookies()</code>. Export
 this R object for later use and close the browser once you’re done.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Navigate to a random Github Enterprise issue</span></span>
 <span><span class="co"># Make sure to log in to GitHub Enterprise</span></span>
 <span><span class="va">b</span><span class="op">$</span><span class="va">Page</span><span class="op">$</span><span class="fu">navigate</span><span class="op">(</span><span class="st">"https://github.nceas.ucsb.edu/LTER/lter-wg-scicomp/issues/278"</span><span class="op">)</span></span>
 <span> </span>
-<span><span class="co"># Save credentials as cookies</span></span>
+<span><span class="co"># Save credentials as cookies </span></span>
 <span><span class="va">cookies</span> <span class="op">&lt;-</span> <span class="va">b</span><span class="op">$</span><span class="va">Network</span><span class="op">$</span><span class="fu">getCookies</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Export cookies for later use</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">cookies</span>, <span class="st">"cookies.rds"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Close the browser tab/window</span></span>
