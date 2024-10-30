@@ -127,15 +127,13 @@ issue_extract <- function(repo_url = NULL,
       title_4 <- stringr::str_replace_all(title_3, "[:space:]{1,2}", "_")
       
       # Issue number padding
-      if (i < 10) {
-        num <- paste0("000", i)
-      } else if (i < 100) {
-        num <- paste0("00", i)
-      } else if (i < 1000) {
-        num <- paste0("0", i)
-      } else {
-        num <- paste0(i)
-      }
+      if(nchar(i) < nchar(max(issue_nums))){
+        
+        need_chars <- nchar(max(issue_nums)) - nchar(i)
+        
+        num <- paste0(paste0(rep(x = "0", times = need_chars), collapse = ""), i)
+        
+      } else { num <- as.character(i) }
       
       # Grab the name of the repo
       repo_name <- stringr::str_extract(repo_url, "([^\\/]+$)")
