@@ -2,20 +2,25 @@ Package: scicomptools
 Type: Package
 Title: Tools Developed by the NCEAS Scientific Computing Support Team
 Version: 1.0.0.900
-Date: 2024-05-02
+Date: 2024-10-30
 Authors@R: c(
-  person(given = "Julien", family = "Brun", 
-         email = "julien.brun@alumni.duke.edu", 
-         comment = c(ORCID = "0000-0002-7751-6238"),
-         role = "aut"),
   person(given = "Angel", family = "Chen",
-         email = "anchen@nceas.ucsb.edu",
+         email = "angel777chen@gmail.com",
          comment = c(ORCID = "0000-0003-3515-6710",
                      Website = "angelchen7.github.io"),
          role = c("aut", "cre")),
+  person(given = "Nicholas J", family = "Lyon", 
+         email = "lyon@nceas.ucsb.edu",
+         comment = c(ORCID = "0000-0003-3905-1078",
+                     Website = "njlyon0.github.io"),
+         role = "aut"),
   person(given = "Gabriel", family = "Antunes Daldegan", 
          email = "gabrieldaldegan@gmail.com", 
          comment = c(ORCID = "0000-0001-5345-4880"),
+         role = "aut"),
+  person(given = "Julien", family = "Brun", 
+         email = "julien.brun@alumni.duke.edu", 
+         comment = c(ORCID = "0000-0002-7751-6238"),
          role = "aut"),
   person(given = "Gabe", family = "De La Rosa",
          email = "delarosa@nceas.ucsb.edu",
@@ -24,11 +29,6 @@ Authors@R: c(
   person(given = "Kara", family = "Koenig",
          email = "kara.koenig392@gmail.com", 
          comment = c(ORCID = "0000-0002-6371-7821"),
-         role = "aut"),
-  person(given = "Nicholas J", family = "Lyon", 
-         email = "lyon@nceas.ucsb.edu",
-         comment = c(ORCID = "0000-0003-3905-1078",
-                     Website = "njlyon0.github.io"),
          role = "aut"),
   person(given = "Kendall", family = "Miller", 
          email = "kendall.miller@oceanx.org", 
@@ -43,7 +43,7 @@ Authors@R: c(
   person(family = "University of California, Santa Barbara",
          role = "cph")
  )
-Maintainer: Angel Chen <anchen@nceas.ucsb.edu>
+Maintainer: Angel Chen <angel777chen@gmail.com>
 Description: Set of tools to import, summarize, wrangle, and visualize data. 
     These functions were originally written based on the needs of the 
     various synthesis working groups that were supported by the 
@@ -56,7 +56,7 @@ LazyData: true
 Language: en-US
 URL: https://github.com/NCEAS/scicomptools, https://nceas.github.io/scicomptools/
 BugReports: https://github.com/NCEAS/scicomptools/issues
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Imports:
    chromote,
