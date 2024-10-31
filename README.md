@@ -88,3 +88,10 @@ install.packages("scicomptools")
   session “knows” that string. This function quickly checks whether
   you’d be able to use that workflow (currently only supports search for
   Qualtrics and GitHub tokens but could be easily expanded!)
+
+### Exporting GitHub Issues as PDF Files
+
+- **`issue_extract`**: Exports specified GitHub issues as PDF files when
+  given the URL of a GitHub repository and a numeric vector of GitHub
+  issue numbers. This function will export the first 10 issues as a
+  default.
