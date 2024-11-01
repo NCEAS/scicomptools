@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   scicomptools: scicomptools.html
-last_built: 2024-10-31T20:08Z
+last_built: 2024-11-01T18:22Z
 urls:
   reference: https://nceas.github.io/scicomptools/reference
   article: https://nceas.github.io/scicomptools/articles
