@@ -61,7 +61,6 @@ Imports:
    dplyr,
    gitcreds,
    googledrive,
-   ggplot2,
    magrittr,
    methods,
    purrr,
