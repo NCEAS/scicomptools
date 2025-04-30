@@ -63,16 +63,6 @@ install.packages("scicomptools")
 - **`read_xl_format`**: Identifies the formatting of every cell in a
   supplied Microsoft Excel workbook (including comment text)
 
-### Text Mining
-
-- **`word_cloud_prep`**: Performs text mining on a given text column of
-  a dataframe to create a dataframe that is ready for word cloud
-  creation
-
-- **`word_cloud_plot`**: Performs text mining (using `word_cloud_prep`)
-  *and* creates a simple `ggplot2` word cloud (for those who don’t want
-  to handle their own plotting aesthetics)
-
 ### Working Directory Management
 
 - **`wd_loc`**: Allows user to easily specify file paths both for local

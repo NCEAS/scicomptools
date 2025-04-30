@@ -1,6 +1,6 @@
-# scicomptools 1.1.0.900
+# scicomptools 1.1.1
 
-Development version of `scicomptools`. Changes from preceding version will be listed here as they are made.
+Functions `word_cloud_prep` and `word_cloud_plot` were removed because they depend on a R package that will be archived on May 12, 2025.
 
 # scicomptools 1.1.0
 
