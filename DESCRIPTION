@@ -1,8 +1,8 @@
 Package: scicomptools
 Type: Package
 Title: Tools Developed by the NCEAS Scientific Computing Support Team
-Version: 1.1.0.900
-Date: 2024-10-30
+Version: 1.1.1
+Date: 2025-05-01
 Authors@R: c(
   person(given = "Angel", family = "Chen",
          email = "angel777chen@gmail.com",
@@ -62,16 +62,13 @@ Imports:
    gitcreds,
    googledrive,
    ggplot2,
-   ggwordcloud,
    magrittr,
    methods,
    purrr,
    readxl,
    stringr,
-   SemNetCleaner,
    tibble,
    tidyr,
-   tidytext,
    tidyxl
 Suggests:
     ecodist,
