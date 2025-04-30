@@ -14,5 +14,11 @@ These functions used to be included in the repository but have since been flagge
 - **`regrid_to_regular`**: Interpolates a netCDF file to World Geodetic System 84 (WGS84)
     - Removed reason: Uses superseded spatial R packages
 
+- **`word_cloud_prep`**: Performs text mining on a given text column of a dataframe to create a dataframe that is ready for word cloud creation
+    - Removed reason: Depends on a R package that will be archived on May 12, 2025.
+
+- **`word_cloud_plot`**: Performs text mining (using `word_cloud_prep`) *and* creates a simple `ggplot2` word cloud (for those who don’t want to handle their own plotting aesthetics)
+    - Removed reason: Depends on `word_cloud_prep`. 
+  
 - **`zoom_webinar_fix`**: Processes the raw CSVs output by Zoom after a webinar (handles both the attendance and post-webinar survey dataframes)
     - Removed reason: Does not quite fit the theme of `scicomptools` and is quite context-dependent 
